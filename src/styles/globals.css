@@ -1,0 +1,882 @@
+/**
+ * src/styles/globals.css
+ * デザインシステム — グローバルスタイル
+ *
+ * ダークモード・グラスモーフィズム・モダンUIを採用した
+ * プレミアムデザインシステムです。
+ */
+
+/* ============================================================
+   Google Fonts — Inter
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+/* ============================================================
+   デザイントークン（CSS変数）
+   ============================================================ */
+:root {
+  /* カラーパレット */
+  --カラー-背景:       #0a0a0f;
+  --カラー-背景2:      #0f0f1a;
+  --カラー-サーフェス: #13131f;
+  --カラー-サーフェス2:#1a1a2e;
+  --カラー-ボーダー:   rgba(99, 102, 241, 0.15);
+  --カラー-ボーダー強: rgba(99, 102, 241, 0.35);
+
+  /* ブランドカラー */
+  --カラー-プライマリ:     hsl(245, 85%, 65%);
+  --カラー-プライマリ薄:   hsl(245, 85%, 65%, 0.15);
+  --カラー-プライマリ輝き: hsl(245, 100%, 75%);
+  --カラー-セカンダリ:     hsl(175, 70%, 50%);
+  --カラー-アクセント:     hsl(315, 85%, 65%);
+
+  /* テキスト */
+  --カラー-テキスト:      rgba(248, 250, 252, 0.95);
+  --カラー-テキスト薄:    rgba(148, 163, 184, 0.85);
+  --カラー-テキスト極薄:  rgba(100, 116, 139, 0.7);
+
+  /* グラデーション */
+  --グラデ-背景: linear-gradient(135deg, #0a0a0f 0%, #0f0a1f 50%, #0a0f1a 100%);
+  --グラデ-プライマリ: linear-gradient(135deg, hsl(245, 85%, 65%) 0%, hsl(275, 85%, 65%) 100%);
+  --グラデ-カード: linear-gradient(135deg, rgba(19, 19, 31, 0.9) 0%, rgba(26, 26, 46, 0.8) 100%);
+
+  /* スペーシング */
+  --スペース-xs:  4px;
+  --スペース-sm:  8px;
+  --スペース-md:  16px;
+  --スペース-lg:  24px;
+  --スペース-xl:  40px;
+  --スペース-2xl: 64px;
+  --スペース-3xl: 96px;
+
+  /* 角丸 */
+  --角丸-sm: 6px;
+  --角丸-md: 12px;
+  --角丸-lg: 20px;
+  --角丸-xl: 28px;
+
+  /* シャドウ */
+  --影-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --影-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --影-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+  --影-プライマリ: 0 8px 32px rgba(99, 102, 241, 0.25);
+
+  /* トランジション */
+  --遷移-速: 150ms ease;
+  --遷移-標準: 250ms ease;
+  --遷移-遅: 400ms ease;
+
+  /* コンテナ幅 */
+  --コンテナ-最大幅: 1200px;
+
+  /* フォント */
+  --フォント-本文: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ============================================================
+   リセット & ベース
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--フォント-本文);
+  background: var(--グラデ-背景);
+  color: var(--カラー-テキスト);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  /* 背景のアンビエントライト効果 */
+  background-attachment: fixed;
+}
+
+/* ============================================================
+   ヘッダー
+   ============================================================ */
+.グローバルヘッダー {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--カラー-ボーダー);
+  padding: 0 var(--スペース-lg);
+}
+
+.ヘッダーコンテナ {
+  max-width: var(--コンテナ-最大幅);
+  margin: 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--スペース-lg);
+}
+
+.ロゴリンク {
+  display: flex;
+  align-items: center;
+  gap: var(--スペース-sm);
+  text-decoration: none;
+  transition: opacity var(--遷移-標準);
+}
+.ロゴリンク:hover { opacity: 0.8; }
+
+.ロゴアイコン { font-size: 24px; }
+
+.ロゴテキスト {
+  font-size: 20px;
+  font-weight: 800;
+  background: var(--グラデ-プライマリ);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.ロゴサブテキスト {
+  font-size: 11px;
+  color: var(--カラー-テキスト極薄);
+  display: none;
+}
+@media (min-width: 640px) {
+  .ロゴサブテキスト { display: block; }
+}
+
+.グローバルナビ {
+  display: flex;
+  align-items: center;
+  gap: var(--スペース-md);
+}
+
+.ナビリンク {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--カラー-テキスト薄);
+  text-decoration: none;
+  padding: var(--スペース-xs) var(--スペース-sm);
+  border-radius: var(--角丸-sm);
+  transition: all var(--遷移-標準);
+}
+.ナビリンク:hover {
+  color: var(--カラー-テキスト);
+  background: var(--カラー-プライマリ薄);
+}
+
+/* ============================================================
+   ヒーローセクション
+   ============================================================ */
+.ヒーローセクション {
+  position: relative;
+  padding: var(--スペース-3xl) var(--スペース-lg);
+  text-align: center;
+  overflow: hidden;
+}
+
+.ヒーローセクション::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 0%, rgba(99, 102, 241, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 100%, rgba(168, 85, 247, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.ヒーロー内容 {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.ヒーロータイトル {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin-bottom: var(--スペース-lg);
+  color: var(--カラー-テキスト);
+}
+
+.タイトルアクセント {
+  background: var(--グラデ-プライマリ);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ヒーローサブテキスト {
+  font-size: 1.125rem;
+  color: var(--カラー-テキスト薄);
+  margin-bottom: var(--スペース-lg);
+  line-height: 1.8;
+}
+
+.ヒーローバッジ群 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--スペース-sm);
+}
+
+.バッジ {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--カラー-プライマリ薄);
+  border: 1px solid var(--カラー-ボーダー強);
+  color: var(--カラー-プライマリ輝き);
+}
+
+/* ============================================================
+   広告ラッパー
+   ============================================================ */
+.広告ラッパー {
+  max-width: var(--コンテナ-最大幅);
+  margin: 0 auto;
+  padding: var(--スペース-md) var(--スペース-lg);
+}
+
+/* ============================================================
+   ツール一覧セクション
+   ============================================================ */
+.ツール一覧セクション {
+  padding: var(--スペース-xl) var(--スペース-lg) var(--スペース-3xl);
+}
+
+.セクションコンテナ {
+  max-width: var(--コンテナ-最大幅);
+  margin: 0 auto;
+}
+
+.カテゴリセクション {
+  margin-bottom: var(--スペース-2xl);
+}
+
+.カテゴリ見出し {
+  display: flex;
+  align-items: center;
+  gap: var(--スペース-sm);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--カラー-テキスト);
+  margin-bottom: var(--スペース-lg);
+  padding-bottom: var(--スペース-sm);
+  border-bottom: 1px solid var(--カラー-ボーダー);
+}
+
+.ツールグリッド {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--スペース-md);
+}
+
+.空状態メッセージ {
+  text-align: center;
+  padding: var(--スペース-3xl);
+  color: var(--カラー-テキスト薄);
+}
+
+/* ============================================================
+   ツールカード
+   ============================================================ */
+.ツールカード {
+  display: block;
+  text-decoration: none;
+  background: var(--グラデ-カード);
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-lg);
+  overflow: hidden;
+  transition: all var(--遷移-標準);
+  position: relative;
+}
+
+.ツールカード::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--角丸-lg);
+  background: var(--グラデ-プライマリ);
+  opacity: 0;
+  transition: opacity var(--遷移-標準);
+}
+
+.ツールカード:hover {
+  border-color: var(--カラー-ボーダー強);
+  transform: translateY(-4px);
+  box-shadow: var(--影-プライマリ);
+}
+.ツールカード:hover::before { opacity: 0.04; }
+
+.ツールカード内容 {
+  position: relative;
+  padding: var(--スペース-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--スペース-sm);
+  height: 100%;
+}
+
+.ツールカードヘッダー {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--スペース-xs);
+}
+
+.ツールアイコン { font-size: 28px; }
+
+.カテゴリバッジ {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: var(--カラー-プライマリ薄);
+  border: 1px solid var(--カラー-ボーダー);
+  color: var(--カラー-プライマリ輝き);
+}
+
+.ツール名 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--カラー-テキスト);
+  line-height: 1.3;
+}
+
+.ツール説明 {
+  font-size: 0.875rem;
+  color: var(--カラー-テキスト薄);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.カード矢印 {
+  display: flex;
+  align-items: center;
+  gap: var(--スペース-xs);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--カラー-プライマリ輝き);
+  margin-top: var(--スペース-sm);
+  transition: gap var(--遷移-速);
+}
+.ツールカード:hover .カード矢印 { gap: var(--スペース-sm); }
+
+/* ============================================================
+   ツールページ
+   ============================================================ */
+.ツールページヘッダー {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, transparent 100%);
+  border-bottom: 1px solid var(--カラー-ボーダー);
+  padding: var(--スペース-xl) var(--スペース-lg) var(--スペース-lg);
+}
+
+.ツールページコンテナ {
+  max-width: var(--コンテナ-最大幅);
+  margin: 0 auto;
+}
+
+.パンくずリスト {
+  margin-bottom: var(--スペース-md);
+}
+
+.パンくずリスト ol {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--スペース-xs);
+  list-style: none;
+  font-size: 13px;
+  color: var(--カラー-テキスト極薄);
+}
+
+.パンくずリスト a {
+  color: var(--カラー-テキスト薄);
+  text-decoration: none;
+  transition: color var(--遷移-速);
+}
+.パンくずリスト a:hover { color: var(--カラー-プライマリ輝き); }
+
+.ツールページタイトル {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--カラー-テキスト);
+  margin-bottom: var(--スペース-sm);
+}
+
+.ツールページ説明 {
+  font-size: 1rem;
+  color: var(--カラー-テキスト薄);
+  line-height: 1.7;
+  max-width: 680px;
+}
+
+.ツールページメイン {
+  padding: var(--スペース-xl) var(--スペース-lg);
+}
+
+.ツールレイアウト {
+  display: grid;
+  gap: var(--スペース-xl);
+}
+
+.ツールコンテンツ {
+  display: flex;
+  flex-direction: column;
+  gap: var(--スペース-lg);
+}
+
+/* ============================================================
+   ツールUI（レンダラー内）
+   ============================================================ */
+.ツールUI {
+  display: grid;
+  gap: var(--スペース-xl);
+}
+
+@media (min-width: 768px) {
+  .ツールUI { grid-template-columns: 1fr 1fr; }
+}
+
+.入力セクション,
+.結果セクション {
+  background: var(--グラデ-カード);
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-lg);
+  padding: var(--スペース-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--スペース-md);
+}
+
+.フィールドグループ {
+  display: flex;
+  flex-direction: column;
+  gap: var(--スペース-sm);
+}
+
+.フィールドラベル {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--カラー-テキスト薄);
+}
+
+.テキストエリア,
+.数値入力,
+.日付入力 {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-md);
+  color: var(--カラー-テキスト);
+  font-family: var(--フォント-本文);
+  font-size: 15px;
+  padding: var(--スペース-md);
+  transition: border-color var(--遷移-標準), box-shadow var(--遷移-標準);
+  outline: none;
+  resize: vertical;
+}
+
+.テキストエリア:focus,
+.数値入力:focus,
+.日付入力:focus {
+  border-color: var(--カラー-プライマリ);
+  box-shadow: 0 0 0 3px var(--カラー-プライマリ薄);
+}
+
+.テキストエリア::placeholder,
+.数値入力::placeholder {
+  color: var(--カラー-テキスト極薄);
+}
+
+.文字カウント表示 {
+  font-size: 12px;
+  color: var(--カラー-テキスト極薄);
+  text-align: right;
+}
+
+.クリアボタン {
+  align-self: flex-start;
+  padding: 8px 20px;
+  border-radius: var(--角丸-md);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--カラー-ボーダー);
+  color: var(--カラー-テキスト薄);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--遷移-標準);
+}
+.クリアボタン:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--カラー-ボーダー強);
+  color: var(--カラー-テキスト);
+}
+
+.結果見出し {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--カラー-テキスト);
+  border-bottom: 1px solid var(--カラー-ボーダー);
+  padding-bottom: var(--スペース-sm);
+}
+
+.結果グリッド {
+  display: grid;
+  gap: var(--スペース-sm);
+}
+
+.結果カード {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--スペース-md);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-md);
+  transition: border-color var(--遷移-標準);
+}
+.結果カード:hover { border-color: var(--カラー-ボーダー強); }
+
+.結果ラベル {
+  font-size: 14px;
+  color: var(--カラー-テキスト薄);
+}
+
+.結果値 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--カラー-プライマリ輝き);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.5px;
+}
+
+.プレースホルダーメッセージ {
+  font-size: 14px;
+  color: var(--カラー-テキスト極薄);
+  text-align: center;
+  padding: var(--スペース-xl) 0;
+}
+
+.未対応メッセージ {
+  padding: var(--スペース-xl);
+  text-align: center;
+  color: var(--カラー-テキスト薄);
+  font-size: 15px;
+  background: rgba(255, 200, 50, 0.05);
+  border: 1px solid rgba(255, 200, 50, 0.2);
+  border-radius: var(--角丸-lg);
+}
+
+/* ============================================================
+   関連ツールセクション
+   ============================================================ */
+.関連ツールセクション {
+  padding: var(--スペース-xl) var(--スペース-lg);
+  border-top: 1px solid var(--カラー-ボーダー);
+}
+
+.関連ツール見出し {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--スペース-lg);
+  color: var(--カラー-テキスト);
+}
+
+/* ============================================================
+   フッター
+   ============================================================ */
+.グローバルフッター {
+  background: rgba(10, 10, 15, 0.95);
+  border-top: 1px solid var(--カラー-ボーダー);
+  padding: var(--スペース-2xl) var(--スペース-lg) var(--スペース-xl);
+  margin-top: auto;
+}
+
+.フッターコンテナ {
+  max-width: var(--コンテナ-最大幅);
+  margin: 0 auto;
+}
+
+.フッターグリッド {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--スペース-2xl);
+  margin-bottom: var(--スペース-xl);
+}
+
+@media (max-width: 640px) {
+  .フッターグリッド { grid-template-columns: 1fr; }
+}
+
+.フッターブランド {
+  display: flex;
+  flex-direction: column;
+  gap: var(--スペース-md);
+}
+
+.フッターロゴ {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--カラー-テキスト);
+}
+
+.フッター説明 {
+  font-size: 14px;
+  color: var(--カラー-テキスト薄);
+  line-height: 1.7;
+  max-width: 400px;
+}
+
+.フッターリンク群 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--スペース-md);
+}
+
+.フッター見出し {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--カラー-テキスト極薄);
+}
+
+.フッターリスト {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--スペース-sm);
+}
+
+.フッターリンク {
+  font-size: 14px;
+  color: var(--カラー-テキスト薄);
+  text-decoration: none;
+  transition: color var(--遷移-速);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--スペース-xs);
+}
+.フッターリンク:hover { color: var(--カラー-プライマリ輝き); }
+
+.フッター下部 {
+  padding-top: var(--スペース-lg);
+  border-top: 1px solid var(--カラー-ボーダー);
+  display: flex;
+  flex-direction: column;
+  gap: var(--スペース-xs);
+}
+
+.コピーライト {
+  font-size: 13px;
+  color: var(--カラー-テキスト極薄);
+}
+
+.免責事項 {
+  font-size: 12px;
+  color: var(--カラー-テキスト極薄);
+  opacity: 0.7;
+}
+
+/* ============================================================
+   ユーティリティ
+   ============================================================ */
+.単位表示 {
+  font-size: 12px;
+  color: var(--カラー-テキスト極薄);
+  margin-left: 4px;
+}
+
+.中部広告 {
+  margin: var(--スペース-md) 0;
+  padding: 0;
+}
+
+/* ============================================================
+   SNSシェアボタン（ShareButtons）
+   ============================================================ */
+
+.share-section {
+  margin-top: var(--スペース-xl);
+  padding: var(--スペース-lg);
+  border-top: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-lg);
+  background: linear-gradient(135deg, rgba(19,19,31,0.85) 0%, rgba(26,26,46,0.75) 100%);
+  backdrop-filter: blur(12px);
+}
+
+.share-header {
+  display: flex;
+  align-items: center;
+  gap: var(--スペース-sm);
+  margin-bottom: var(--スペース-md);
+}
+
+.share-icon {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--カラー-テキスト);
+  line-height: 1;
+}
+
+.share-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--カラー-テキスト薄);
+  letter-spacing: 0.02em;
+}
+
+.share-templates {
+  display: flex;
+  flex-direction: column;
+  gap: var(--スペース-sm);
+}
+
+.share-card {
+  position: relative;
+  padding: var(--スペース-md);
+  border-radius: var(--角丸-md);
+  border: 1px solid var(--カラー-ボーダー);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  user-select: none;
+}
+
+.share-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--カラー-ボーダー強);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--カラー-ボーダー強);
+}
+
+.share-card:active {
+  transform: translateY(0);
+  box-shadow: var(--影-sm);
+}
+
+.share-card--selected {
+  border-color: var(--カラー-プライマリ輝き);
+  background: rgba(99, 102, 241, 0.08);
+  box-shadow: 0 0 0 1px var(--カラー-プライマリ輝き), var(--影-md);
+}
+
+.share-card-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--カラー-プライマリ輝き);
+  margin-bottom: var(--スペース-xs);
+}
+
+.share-card-text {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--カラー-テキスト薄);
+  margin: 0;
+  word-break: break-all;
+}
+
+.x-post-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--スペース-md);
+  padding: 12px 24px;
+  min-height: 44px;
+  border-radius: var(--角丸-md);
+  background: #000000;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.x-post-button:hover {
+  background: #1a1a1a;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  transform: translateY(-1px);
+}
+
+.x-post-button:active {
+  transform: translateY(0);
+  background: #111111;
+}
+
+.share-hint {
+  margin-top: var(--スペース-md);
+  font-size: 11px;
+  color: var(--カラー-テキスト極薄);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* モバイル最適化 */
+@media (max-width: 768px) {
+  .share-section {
+    padding: var(--スペース-md);
+    border-radius: var(--角丸-md);
+  }
+
+  .share-card {
+    padding: var(--スペース-md) var(--スペース-sm);
+  }
+
+  .x-post-button {
+    width: 100%;
+    min-height: 48px;
+    font-size: 15px;
+  }
+}
+
+/* ============================================================
+   レスポンシブ
+   ============================================================ */
+@media (max-width: 768px) {
+  .ヒーローセクション { padding: var(--スペース-2xl) var(--スペース-md); }
+  .ツール一覧セクション { padding: var(--スペース-lg) var(--スペース-md); }
+  .ツールページヘッダー { padding: var(--スペース-lg) var(--スペース-md); }
+  .ツールページメイン { padding: var(--スペース-lg) var(--スペース-md); }
+  .ヘッダーコンテナ { height: 56px; }
+  .ツールグリッド { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   アクセシビリティ
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--カラー-プライマリ);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
