@@ -2,7 +2,7 @@
  * src/components/ShareButtons.tsx
  * SNS（X）シェアボタンコンポーネント
  *
- * 計算結果の「自分事の数字」をXに投稿させ、バイラル流入を狙います。
+ * 計算結果をXに投稿するためのシェアボタンUIです。
  * socialPostTemplates の {result} を実際の結果値に差し替えて表示します。
  *
  * ※ 𝕏（U+1D54F）は JSDOM（Next.js SSG）でInvalidCharacterErrorを起こすため
@@ -37,14 +37,14 @@ export default function ShareButtons({ ツール, 結果テキスト }: ShareBut
   const ツールURL = `${SITE_URL}/tools/${encodeURIComponent(ツール.スラッグ)}`;
   const 結果プレースホルダー = 結果テキスト ?? "◯◯";
 
-  const ラベル = ["🔥 煽り", "💬 共感", "📢 最新情報"];
+  const ラベル = ["📊 計算結果を報告", "💡 便利さを伝える", "📢 最新情報として紹介"];
 
   return (
     <div className="share-section">
       <div className="share-header">
         {/* 𝕏 → X に変更（U+1D54F は JSDOM でInvalidCharacterErrorになるため） */}
         <span className="share-icon">X</span>
-        <span className="share-title">この結果をXでシェアして流入を呼ぶ</span>
+        <span className="share-title">計算結果をシェアする</span>
       </div>
 
       <div className="share-templates">
