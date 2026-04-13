@@ -1,30 +1,33 @@
 /**
  * src/app/tools/[ツールスラッグ]/page.tsx
- * 動的ツールページ（SSG）
+ * 動的ツールページ（ISR: オンデマンド生成）
  *
- * generateStaticParams でビルド時に全ツールページを静的生成します。
- * generateMetadata でJSONからSEOメタデータを動的生成します。
+ * Next.js 16 Turbopack では日本語ルートパラメータ名が SSG 時に
+ * InvalidCharacterError を起こすため、generateStaticParams を無効化。
+ * ページはリクエスト時にサーバーレンダリングされ Vercel Edge でキャッシュされる。
+ * 恒久対策: フォルダを [ツールスラッグ] → [slug] にリネームする。
  */
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { 全スラッグ取得, ツール取得, 全ツール取得, 同一カテゴリツール取得 } from "@/lib/load-tools";
+import { ツール取得, 全ツール取得, 同一カテゴリツール取得 } from "@/lib/load-tools";
 import ツールレンダラー from "@/components/ツールレンダラー";
 import ToolCard from "@/components/ツールカード";
 import AdSlot from "@/components/AdSlot";
 import { SITE_URL } from "@/lib/constants";
 
 // ============================================================
-// 静的パス生成（ビルド時全ページSSG）
+// 静的パス生成（日本語パラメータ名による InvalidCharacterError 回避のため無効化）
 // ============================================================
 
+// SSG を無効化: 空配列を返すことでビルド時の静的生成をスキップ
+// ページはリクエスト時に動的レンダリング → Vercel Edge でキャッシュされる
 export async function generateStaticParams() {
-  const スラッグ一覧 = await 全スラッグ取得();
-  // Next.js が自動でURLエンコードするため、生のスラッグをそのまま渡す
-  return スラッグ一覧.map((スラッグ) => ({
-    ツールスラッグ: スラッグ,
-  }));
+  return [];
 }
+
+// 未知パスを 404 にせず動的レンダリングする
+export const dynamicParams = true;
 
 // ============================================================
 // SEOメタデータ（JSONから動的生成）
