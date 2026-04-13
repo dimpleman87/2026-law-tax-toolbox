@@ -134,10 +134,10 @@ export default async function ツールページ({
               <li aria-hidden="true">&gt;</li>
               <li><a href={`/?category=${encodeURIComponent(ツール.カテゴリ)}`}>{ツール.カテゴリ}</a></li>
               <li aria-hidden="true">&gt;</li>
-              <li>{ツール.スラッグ}</li>
+              <li>{ツール.タイトル}</li>
             </ol>
           </nav>
-          <h1 className="tool-page-title">{ツール.スラッグ}</h1>
+          <h1 className="tool-page-title">{ツール.タイトル}</h1>
           <p className="tool-page-description">{ツール.説明}</p>
         </div>
       </div>

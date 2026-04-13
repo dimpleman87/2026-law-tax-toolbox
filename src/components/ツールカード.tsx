@@ -39,7 +39,7 @@ export default function ツールカード({ ツール }: ツールカードProp
           <span className="ツールアイコン" aria-hidden="true">{アイコン}</span>
           <span className="カテゴリバッジ">{ツール.カテゴリ}</span>
         </div>
-        <h2 className="ツール名">{ツール.スラッグ}</h2>
+        <h2 className="ツール名">{ツール.タイトル}</h2>
         <p className="ツール説明">{ツール.説明}</p>
         <div className="カード矢印">
           <span>使ってみる</span>
