@@ -55,15 +55,6 @@ export default function RootLayout({
   return (
     <html lang="ja" className={inter.variable}>
       <head>
-        {/* Google AdSense — 本番公開時に有効化 */}
-        {process.env.NODE_ENV === "production" && (
-          <Script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
-            crossOrigin="anonymous"
-            strategy="afterInteractive"
-          />
-        )}
         {/* サイト構造化データ（JSON-LD） */}
         <script
           type="application/ld+json"
@@ -85,6 +76,28 @@ export default function RootLayout({
           {children}
         </main>
         <フッター />
+
+        {/* ========== Google AdSense Auto Ads ========== */}
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+
+        {/* ========== Google Analytics 4 ========== */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-KZ5EZ4D3J4"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-KZ5EZ4D3J4');
+          `}
+        </Script>
       </body>
     </html>
   );
