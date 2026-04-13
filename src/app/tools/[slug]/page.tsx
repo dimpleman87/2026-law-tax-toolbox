@@ -12,7 +12,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { 全スラッグ取得, ツール取得, 全ツール取得, 同一カテゴリツール取得 } from "@/lib/load-tools";
-import ツールレンダラー from "@/components/ツールレンダラー";
+import ToolRenderer from "@/components/ToolRenderer";
 import ToolCard from "@/components/ツールカード";
 import AdSlot from "@/components/AdSlot";
 import { SITE_URL } from "@/lib/constants";
