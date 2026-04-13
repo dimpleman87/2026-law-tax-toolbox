@@ -1,33 +1,34 @@
 /**
- * src/app/tools/[ツールスラッグ]/page.tsx
- * 動的ツールページ（ISR: オンデマンド生成）
+ * src/app/tools/[slug]/page.tsx
+ * 動的ツールページ（SSG）
  *
- * Next.js 16 Turbopack では日本語ルートパラメータ名が SSG 時に
- * InvalidCharacterError を起こすため、generateStaticParams を無効化。
- * ページはリクエスト時にサーバーレンダリングされ Vercel Edge でキャッシュされる。
- * 恒久対策: フォルダを [ツールスラッグ] → [slug] にリネームする。
+ * generateStaticParams でビルド時に全ツールページを静的生成します。
+ * generateMetadata でJSONからSEOメタデータを動的生成します。
+ *
+ * ※ パラメータ名を英語 [slug] に変更（旧: [ツールスラッグ]）
+ *    日本語パラメータ名は Next.js 16 Turbopack で InvalidCharacterError を起こすため
  */
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ツール取得, 全ツール取得, 同一カテゴリツール取得 } from "@/lib/load-tools";
+import { 全スラッグ取得, ツール取得, 全ツール取得, 同一カテゴリツール取得 } from "@/lib/load-tools";
 import ツールレンダラー from "@/components/ツールレンダラー";
 import ToolCard from "@/components/ツールカード";
 import AdSlot from "@/components/AdSlot";
 import { SITE_URL } from "@/lib/constants";
 
 // ============================================================
-// 静的パス生成（日本語パラメータ名による InvalidCharacterError 回避のため無効化）
+// 静的パス生成（ビルド時に全ツールページを SSG）
 // ============================================================
 
-// SSG を無効化: 空配列を返すことでビルド時の静的生成をスキップ
-// ページはリクエスト時に動的レンダリング → Vercel Edge でキャッシュされる
 export async function generateStaticParams() {
-  return [];
+  const スラッグ一覧 = await 全スラッグ取得();
+  return スラッグ一覧.map((スラッグ) => ({
+    slug: スラッグ,
+  }));
 }
 
-// 未知パスを 404 にせず動的レンダリングする
-export const dynamicParams = true;
+export const dynamicParams = false;
 
 // ============================================================
 // SEOメタデータ（JSONから動的生成）
@@ -36,10 +37,10 @@ export const dynamicParams = true;
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ ツールスラッグ: string }>;
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { ツールスラッグ } = await params;
-  const ツール = await ツール取得(ツールスラッグ);
+  const { slug } = await params;
+  const ツール = await ツール取得(slug);
 
   if (!ツール) {
     return { title: "ツールが見つかりません" };
@@ -76,10 +77,10 @@ export async function generateMetadata({
 export default async function ツールページ({
   params,
 }: {
-  params: Promise<{ ツールスラッグ: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { ツールスラッグ } = await params;
-  const ツール = await ツール取得(ツールスラッグ);
+  const { slug } = await params;
+  const ツール = await ツール取得(slug);
 
   if (!ツール) {
     notFound();
@@ -92,33 +93,10 @@ export default async function ツールページ({
     : [];
 
   // 同一カテゴリの他のツールを取得（内回遊率向上のため）
-  const 同一カテゴリツール一覧 = await 同一カテゴリツール取得(ツールスラッグ, ツール.カテゴリ);
-
-  // 構造化データ (SoftwareApplication)
-  const 構造化データ = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": ツール.タイトル,
-    "operatingSystem": "Any",
-    "applicationCategory": "BusinessApplication",
-    "description": ツール.説明,
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "JPY"
-    },
-    "url": `${SITE_URL}/tools/${encodeURIComponent(ツールスラッグ)}`
-  };
+  const 同一カテゴリツール一覧 = await 同一カテゴリツール取得(slug, ツール.カテゴリ);
 
   return (
     <>
-      {/* 構造化データの注入 (InvalidCharacterError 調査のため一時無効化)
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(構造化データ) }}
-      />
-      */}
-
       {/* 上部広告 */}
       {ツール.広告配置.includes("top") && (
         <div className="広告ラッパー">
@@ -132,7 +110,11 @@ export default async function ツールページ({
             <ol>
               <li><a href="/">ホーム</a></li>
               <li aria-hidden="true">&gt;</li>
-              <li><a href={`/?category=${encodeURIComponent(ツール.カテゴリ)}`}>{ツール.カテゴリ}</a></li>
+              <li>
+                <a href={`/?category=${encodeURIComponent(ツール.カテゴリ)}`}>
+                  {ツール.カテゴリ}
+                </a>
+              </li>
               <li aria-hidden="true">&gt;</li>
               <li>{ツール.タイトル}</li>
             </ol>
@@ -173,7 +155,7 @@ export default async function ツールページ({
                 </div>
               </>
             )}
-            
+
             {同一カテゴリツール一覧.length > 0 && (
               <div className="同一カテゴリセクション">
                 <h2 className="関連ツール見出し">「{ツール.カテゴリ}」の他のツール</h2>
