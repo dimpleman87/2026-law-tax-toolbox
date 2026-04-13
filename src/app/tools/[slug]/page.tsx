@@ -136,7 +136,7 @@ export default async function ツールページ({
             )}
 
             {/* ツールUI（ロジック種別に応じて動的レンダリング） */}
-            <ツールレンダラー ツール={ツール} />
+<ToolRenderer ツール={ツール} />
           </div>
         </div>
       </div>
