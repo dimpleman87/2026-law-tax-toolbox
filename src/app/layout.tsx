@@ -1,6 +1,6 @@
 /**
  * src/app/layout.tsx
- * ルートレイアウト — グローバルSEO・AdSense設定
+ * ルートレイアウト — グローバルSEO・AdSense・GA4設定
  */
 
 import type { Metadata } from "next";
@@ -47,6 +47,15 @@ export const metadata: Metadata = {
   },
 };
 
+const GA_ID = "G-KZ5EZ4D3J4";
+
+const gtagScript = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${GA_ID}');
+`;
+
 export default function RootLayout({
   children,
 }: {
@@ -55,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className={inter.variable}>
       <head>
-        {/* Google AdSense — <head>内に静的配置してクローラーに確実に検出させる */}
+        {/* Google AdSense — head内に静的配置してクローラーに確実に検出させる */}
         <script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
@@ -83,16 +92,17 @@ export default function RootLayout({
         </main>
         <フッター />
 
-        {/* AdSense は <head> に移動済み */}
-
-        {/* ========== Google Analytics 4 ========== */}
+        {/* Google Analytics 4 */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-KZ5EZ4D3J4"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-           
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: gtagScript }}
+        />
+      </body>
+    </html>
+  );
+}
