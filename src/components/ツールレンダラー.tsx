@@ -9,8 +9,14 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import dynamic from "next/dynamic";
 import { ツール定義型 } from "@/lib/types";
-import ShareButtons from "@/components/ShareButtons";
+
+// SSG時のInvalidCharacterError対策: ShareButtonsをクライアント専用でレンダリング
+const ShareButtons = dynamic(() => import("@/components/ShareButtons"), {
+  ssr: false,
+  loading: () => null,
+});
 
 interface ツールレンダラーProps {
   ツール: ツール定義型;

@@ -4,6 +4,9 @@
  *
  * 計算結果の「自分事の数字」をXに投稿させ、バイラル流入を狙います。
  * socialPostTemplates の {result} を実際の結果値に差し替えて表示します。
+ *
+ * ※ 𝕏（U+1D54F）は JSDOM（Next.js SSG）でInvalidCharacterErrorを起こすため
+ *    ASCII文字「X」に置換しています。
  */
 
 "use client";
@@ -39,7 +42,8 @@ export default function ShareButtons({ ツール, 結果テキスト }: ShareBut
   return (
     <div className="share-section">
       <div className="share-header">
-        <span className="share-icon">𝕏</span>
+        {/* 𝕏 → X に変更（U+1D54F は JSDOM でInvalidCharacterErrorになるため） */}
+        <span className="share-icon">X</span>
         <span className="share-title">この結果をXでシェアして流入を呼ぶ</span>
       </div>
 
@@ -68,9 +72,9 @@ export default function ShareButtons({ ツール, 結果テキスト }: ShareBut
                   rel="noopener noreferrer"
                   className="x-post-button"
                   onClick={(e) => e.stopPropagation()}
-                  aria-label={`Xに投稿: ${投稿文}`}
+                  aria-label={`Xに投稿する`}
                 >
-                  𝕏 ポストする
+                  X でポストする
                 </a>
               )}
             </div>
@@ -79,7 +83,7 @@ export default function ShareButtons({ ツール, 結果テキスト }: ShareBut
       </div>
 
       <p className="share-hint">
-        ↑ カードをタップして投稿文を確認 → 「𝕏 ポストする」でシェア
+        ↑ カードをタップして投稿文を確認 → 「X でポストする」でシェア
       </p>
     </div>
   );
