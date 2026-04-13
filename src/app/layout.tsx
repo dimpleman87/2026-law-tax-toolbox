@@ -55,6 +55,12 @@ export default function RootLayout({
   return (
     <html lang="ja" className={inter.variable}>
       <head>
+        {/* Google AdSense — <head>内に静的配置してクローラーに確実に検出させる */}
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
+          crossOrigin="anonymous"
+        />
         {/* サイト構造化データ（JSON-LD） */}
         <script
           type="application/ld+json"
@@ -77,13 +83,7 @@ export default function RootLayout({
         </main>
         <フッター />
 
-        {/* ========== Google AdSense Auto Ads ========== */}
-        <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        {/* AdSense は <head> に移動済み */}
 
         {/* ========== Google Analytics 4 ========== */}
         <Script
@@ -95,10 +95,4 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-KZ5EZ4D3J4');
-          `}
-        </Script>
-      </body>
-    </html>
-  );
-}
+           
