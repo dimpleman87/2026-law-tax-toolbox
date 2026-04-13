@@ -1,13 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // ビルド時の TypeScript 型チェックをスキップ（Vercel デプロイ優先）
+  // ビルド時の TypeScript 型チェックをスキップ（Next.js 15+ 対応）
   typescript: {
     ignoreBuildErrors: true,
-  },
-
-  // ビルド時の ESLint チェックをスキップ
-  eslint: {
-    ignoreDuringBuilds: true,
   },
 
   // 画像最適化設定
