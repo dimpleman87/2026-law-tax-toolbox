@@ -14,4 +14,5 @@ export const CATEGORIES = {
   IT: "IT・DX推進",
   TEXT: "テキスト解析",
   LIFE: "生活・計算",
+  PET: "ペット",
 } as const;

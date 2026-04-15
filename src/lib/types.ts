@@ -20,12 +20,13 @@ export type 広告配置位置型 = "top" | "middle" | "bottom" | "sidebar";
 /**
  * ツールのUIレンダリング・ロジックを決定する種別。
  */
-export type ロジック種別型 = 
+export type ロジック種別型 =
   | "text-analysis"   // テキスト分析（文字数カウント等）
   | "calculation"     // 数値計算（BMI・消費税等）
   | "date-calculation"// 日付計算（年齢計算等）
   | "conversion"      // 変換ツール（単位変換等）
-  | "generator";      // 生成ツール（パスワード生成等）
+  | "generator"       // 生成ツール（パスワード生成等）
+  | "dog-age";        // 犬の年齢換算（PetAdBanner付き専用UI）
 
 // ============================================================
 // 入力フィールドに関する型
