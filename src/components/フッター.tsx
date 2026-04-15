@@ -4,6 +4,7 @@
  */
 
 import Link from "next/link";
+import RakutenWidget from "@/components/RakutenWidget";
 
 export default function フッター() {
   const 現在年 = new Date().getFullYear();
@@ -43,6 +44,11 @@ export default function フッター() {
               </ul>
             </nav>
           </div>
+        </div>
+
+        {/* 楽天アフィリエイトウィジェット */}
+        <div style={{ padding: "24px 0 8px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+          <RakutenWidget className="mx-auto" />
         </div>
 
         <div className="フッター下部">
