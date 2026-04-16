@@ -32,7 +32,7 @@ export default function フッター() {
                 <li><Link href="/privacy" className="フッターリンク">🛡️ プライバシー・免責事項</Link></li>
                 <li><Link href="/contact" className="フッターリンク">✉️ お問い合わせ</Link></li>
                 <li>
-                  <a
+                  
                     href="https://forms.gle/Zvgd2adx4JJHvo14A"
                     className="フッターリンク"
                     target="_blank"
