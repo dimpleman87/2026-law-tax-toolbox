@@ -29,6 +29,7 @@ export default function フッター() {
                 <li><Link href="/#cat-1" className="フッターリンク">ビジネス</Link></li>
                 <li><Link href="/#cat-2" className="フッターリンク">士業・法務</Link></li>
                 <li><Link href="/#cat-3" className="フッターリンク">IT・DX推進</Link></li>
+                <li><Link href="/about" className="フッターリンク">運営者情報</Link></li>
                 <li><Link href="/privacy" className="フッターリンク">プライバシー・免責事項</Link></li>
                 <li><Link href="/contact" className="フッターリンク">お問い合わせ</Link></li>
                 <li>
@@ -58,8 +59,4 @@ export default function フッター() {
           <p className="免責事項">
             本サービスは情報提供を目的としています。計算結果の正確性について保証するものではありません。
           </p>
-        </div>
-      </div>
-    </footer>
-  );
-}
+     
