@@ -13,6 +13,9 @@ import { useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { ツール定義型 } from "@/lib/types";
 import PetAdBanner from "@/components/PetAdBanner";
+import BusinessAdBanner from "@/components/BusinessAdBanner";
+import ITAdBanner from "@/components/ITAdBanner";
+import LifeAdBanner from "@/components/LifeAdBanner";
 
 const ShareButtons = dynamic(() => import("@/components/ShareButtons"), {
   ssr: false,
@@ -1502,6 +1505,17 @@ function 数値計算UI({ ツール }: { ツール: ツール定義型 }) {
           </p>
         )}
       </div>
+
+      {/* カテゴリ別アフィリエイトバナー（結果表示時のみ） */}
+      {結果 && (ツール.カテゴリ === "ビジネス・経理" || ツール.カテゴリ === "金融・投資" || ツール.カテゴリ === "士業・法務") && (
+        <BusinessAdBanner />
+      )}
+      {結果 && ツール.カテゴリ === "IT・DX推進" && (
+        <ITAdBanner />
+      )}
+      {結果 && ツール.カテゴリ === "生活・計算" && (
+        <LifeAdBanner />
+      )}
 
       {結果 && <AIAdvice ツール={ツール} 結果={結果} />}
       <ShareButtons ツール={ツール} 結果テキスト={結果テキスト} />
