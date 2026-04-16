@@ -14,7 +14,7 @@ export default function フッター() {
       <div className="フッターコンテナ">
         <div className="フッターグリッド">
           <div className="フッターブランド">
-            <span className="フッターロゴ">⚡ ToolBox</span>
+            <span className="フッターロゴ">ToolBox</span>
             <p className="フッター説明">
               無料で使えるWeb便利ツール集。
               テキスト処理・計算・変換など多数のツールを提供しています。
@@ -25,20 +25,20 @@ export default function フッター() {
             <h3 className="フッター見出し">ツールカテゴリ</h3>
             <nav aria-label="Footer navigation">
               <ul className="フッターリスト">
-                <li><Link href="/#cat-0" className="フッターリンク">💰 金融・投資</Link></li>
-                <li><Link href="/#cat-1" className="フッターリンク">💼 ビジネス</Link></li>
-                <li><Link href="/#cat-2" className="フッターリンク">⚖️ 士業・法務</Link></li>
-                <li><Link href="/#cat-3" className="フッターリンク">🚀 IT・DX推進</Link></li>
-                <li><Link href="/privacy" className="フッターリンク">🛡️ プライバシー・免責事項</Link></li>
-                <li><Link href="/contact" className="フッターリンク">✉️ お問い合わせ</Link></li>
+                <li><Link href="/#cat-0" className="フッターリンク">金融・投資</Link></li>
+                <li><Link href="/#cat-1" className="フッターリンク">ビジネス</Link></li>
+                <li><Link href="/#cat-2" className="フッターリンク">士業・法務</Link></li>
+                <li><Link href="/#cat-3" className="フッターリンク">IT・DX推進</Link></li>
+                <li><Link href="/privacy" className="フッターリンク">プライバシー・免責事項</Link></li>
+                <li><Link href="/contact" className="フッターリンク">お問い合わせ</Link></li>
                 <li>
-                  
+                  <a
                     href="https://forms.gle/Zvgd2adx4JJHvo14A"
                     className="フッターリンク"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    🚨 不備報告・お問い合わせ
+                    不備報告・お問い合わせ
                   </a>
                 </li>
               </ul>
@@ -53,7 +53,7 @@ export default function フッター() {
 
         <div className="フッター下部">
           <p className="コピーライト">
-            © {現在年} ToolBox — 無料オンラインツール集
+            {現在年} ToolBox - 無料オンラインツール集
           </p>
           <p className="免責事項">
             本サービスは情報提供を目的としています。計算結果の正確性について保証するものではありません。
