@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.toolbox-free.com" }],
+      "destination": "https://toolbox-free.com/$1",
+      "permanent": true
+    }
+  ]
+}
