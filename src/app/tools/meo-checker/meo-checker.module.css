@@ -1,0 +1,235 @@
+/* ─────────────────────────────────────────────────────────────
+   MEO診断ツール 固有スタイル
+   既存グローバル CSS（--カラー-* 変数）を継承して使用
+   ───────────────────────────────────────────────────────────── */
+
+/* HP有無 ラジオ選択 */
+.ラジオ群 {
+  display: flex;
+  gap: var(--スペース-sm);
+}
+
+.ラジオラベル {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-md);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--カラー-テキスト薄);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--遷移-標準);
+  user-select: none;
+}
+
+.ラジオラベル:hover {
+  border-color: var(--カラー-ボーダー強);
+  color: var(--カラー-テキスト);
+}
+
+.ラジオラベル.選択済み {
+  border-color: var(--カラー-プライマリ);
+  background: var(--カラー-プライマリ薄);
+  color: var(--カラー-プライマリ輝き);
+}
+
+/* 診断ボタン */
+.診断ボタン {
+  width: 100%;
+  padding: 14px;
+  background: var(--グラデ-プライマリ);
+  border: none;
+  border-radius: var(--角丸-md);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--遷移-標準);
+  box-shadow: var(--影-プライマリ);
+  letter-spacing: 0.02em;
+  font-family: var(--フォント-本文);
+}
+
+.診断ボタン:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 40px #6366f160;
+}
+
+.診断ボタン:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* プログレスバー */
+.プログレス領域 {
+  margin-top: var(--スペース-md);
+}
+
+.プログレスメッセージ {
+  text-align: center;
+  font-size: 13px;
+  color: var(--カラー-テキスト薄);
+  margin-bottom: var(--スペース-sm);
+  min-height: 20px;
+  animation: meoTextPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes meoTextPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+.プログレスバー外枠 {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.プログレスバー {
+  height: 100%;
+  border-radius: 99px;
+  background: var(--グラデ-プライマリ);
+  transition: width 0.3s ease;
+}
+
+.プログレスパーセント {
+  text-align: center;
+  font-size: 11px;
+  color: var(--カラー-テキスト極薄);
+  margin-top: 4px;
+}
+
+/* SVG ゲージ */
+.ゲージラッパー {
+  display: flex;
+  justify-content: center;
+  margin: var(--スペース-md) 0;
+}
+
+.ゲージSVG {
+  width: 100%;
+  max-width: 240px;
+  user-select: none;
+}
+
+/* レベルバッジ */
+.レベルバッジラッパー {
+  text-align: center;
+  margin-bottom: var(--スペース-md);
+}
+
+.レベルバッジ {
+  display: inline-block;
+  padding: 4px 18px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid;
+}
+
+.レベルバッジ.高 {
+  background: rgba(38, 217, 202, 0.12);
+  border-color: rgba(38, 217, 202, 0.4);
+  color: #26d9ca;
+}
+
+.レベルバッジ.中 {
+  background: rgba(251, 191, 36, 0.12);
+  border-color: rgba(251, 191, 36, 0.35);
+  color: #fbbf24;
+}
+
+.レベルバッジ.低 {
+  background: rgba(242, 90, 204, 0.12);
+  border-color: rgba(242, 90, 204, 0.35);
+  color: #f25acc;
+}
+
+/* 診断説明文 */
+.診断説明 {
+  font-size: 14px;
+  color: var(--カラー-テキスト薄);
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: var(--スペース-md);
+}
+
+/* 推奨アクション */
+.推奨リスト {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--スペース-sm);
+  margin-top: var(--スペース-sm);
+}
+
+.推奨アイテム {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--カラー-テキスト薄);
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-sm);
+  transition: border-color var(--遷移-標準);
+  line-height: 1.6;
+}
+
+.推奨アイテム:hover {
+  border-color: var(--カラー-ボーダー強);
+}
+
+.推奨アイコン {
+  color: var(--カラー-セカンダリ);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* エラー */
+.エラー {
+  font-size: 13px;
+  color: #f25acc;
+  text-align: center;
+  margin-bottom: var(--スペース-sm);
+}
+
+/* リセットボタン */
+.リセットボタン {
+  width: 100%;
+  margin-top: var(--スペース-md);
+  padding: 12px;
+  background: transparent;
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-md);
+  color: var(--カラー-テキスト薄);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--遷移-標準);
+  font-family: var(--フォント-本文);
+}
+
+.リセットボタン:hover {
+  border-color: var(--カラー-ボーダー強);
+  color: var(--カラー-テキスト);
+}
+
+/* フェードイン */
+@keyframes meoFadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.フェードイン {
+  animation: meoFadeInUp 0.4s ease-out both;
+}
