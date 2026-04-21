@@ -1,0 +1,120 @@
+.ツールUI {
+  display: grid;
+  gap: var(--スペース-xl);
+}
+@media (min-width: 768px) {
+  .ツールUI { grid-template-columns: 1fr 1fr; }
+}
+
+.選択肢グループ {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.選択ボタン {
+  padding: 9px 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-sm);
+  color: var(--カラー-テキスト薄);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--遷移-標準);
+  font-family: var(--フォント-本文);
+}
+.選択ボタン:hover { border-color: var(--カラー-ボーダー強); color: var(--カラー-テキスト); }
+.選択ボタンアクティブ {
+  background: var(--カラー-プライマリ薄);
+  border-color: var(--カラー-プライマリ);
+  color: var(--カラー-プライマリ輝き);
+}
+
+.生成ボタン {
+  width: 100%;
+  padding: 14px;
+  background: var(--グラデ-プライマリ);
+  border: none;
+  border-radius: var(--角丸-md);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--遷移-標準);
+  box-shadow: var(--影-プライマリ);
+  font-family: var(--フォント-本文);
+}
+.生成ボタン:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+.生成ボタン:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* QR表示 */
+.QR表示領域 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--スペース-md);
+}
+
+.QR画像ラッパー {
+  background: #fff;
+  border-radius: var(--角丸-md);
+  padding: 12px;
+  display: inline-flex;
+  box-shadow: var(--影-md);
+}
+
+.QR画像 {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.QRデータ表示 {
+  font-size: 12px;
+  color: var(--カラー-テキスト極薄);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.QRデータラベル { font-weight: 600; }
+.QRデータ値 { word-break: break-all; }
+
+.ダウンロードボタン {
+  width: 100%;
+  padding: 12px;
+  background: rgba(38,217,202,0.1);
+  border: 1px solid rgba(38,217,202,0.35);
+  border-radius: var(--角丸-md);
+  color: #26d9ca;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--遷移-標準);
+  font-family: var(--フォント-本文);
+}
+.ダウンロードボタン:hover { background: rgba(38,217,202,0.18); }
+
+.注意書き {
+  font-size: 11px;
+  color: var(--カラー-テキスト極薄);
+  text-align: center;
+}
+
+/* プレースホルダー */
+.QRプレースホルダー {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  border: 2px dashed var(--カラー-ボーダー);
+  border-radius: var(--角丸-lg);
+  color: var(--カラー-テキスト極薄);
+}
+
+.QRプレースホルダーアイコン { font-size: 48px; opacity: 0.3; }

@@ -1,0 +1,102 @@
+.ツールUI {
+  display: grid;
+  gap: var(--スペース-xl);
+}
+@media (min-width: 768px) {
+  .ツールUI { grid-template-columns: 1fr 1fr; }
+}
+
+.モード切替 {
+  display: flex;
+  gap: 4px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-md);
+  padding: 4px;
+}
+
+.モードボタン {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: var(--角丸-sm);
+  background: transparent;
+  color: var(--カラー-テキスト薄);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--遷移-標準);
+  font-family: var(--フォント-本文);
+}
+.モードボタンアクティブ {
+  background: var(--グラデ-プライマリ);
+  color: #fff;
+  box-shadow: var(--影-プライマリ);
+}
+
+.ボタン群 {
+  display: flex;
+  gap: var(--スペース-sm);
+  flex-wrap: wrap;
+}
+
+.変換ボタン {
+  flex: 1;
+  padding: 12px 20px;
+  background: var(--グラデ-プライマリ);
+  border: none;
+  border-radius: var(--角丸-md);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--遷移-標準);
+  box-shadow: var(--影-プライマリ);
+  font-family: var(--フォント-本文);
+}
+.変換ボタン:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+.変換ボタン:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.リセットボタン {
+  padding: 12px 20px;
+  background: transparent;
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-md);
+  color: var(--カラー-テキスト薄);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--遷移-標準);
+  font-family: var(--フォント-本文);
+}
+.リセットボタン:hover { border-color: var(--カラー-ボーダー強); color: var(--カラー-テキスト); }
+
+.コピーボタン {
+  width: 100%;
+  padding: 10px;
+  background: rgba(99,102,241,0.1);
+  border: 1px solid var(--カラー-ボーダー強);
+  border-radius: var(--角丸-md);
+  color: var(--カラー-プライマリ輝き);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--遷移-標準);
+  font-family: var(--フォント-本文);
+}
+.コピーボタン:hover { background: rgba(99,102,241,0.18); }
+
+.比較情報 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--スペース-md);
+  padding: var(--スペース-sm);
+  background: rgba(255,255,255,0.03);
+  border-radius: var(--角丸-sm);
+  border: 1px solid var(--カラー-ボーダー);
+}
+.比較アイテム { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.比較ラベル { font-size: 11px; color: var(--カラー-テキスト極薄); }
+.比較値 { font-size: 15px; font-weight: 700; color: var(--カラー-プライマリ輝き); }
+.比較区切り { font-size: 18px; color: var(--カラー-テキスト極薄); font-weight: 300; }
