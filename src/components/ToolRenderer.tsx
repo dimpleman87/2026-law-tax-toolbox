@@ -1203,6 +1203,53 @@ function 計算エンジン(
   }
 }
 
+// ── 和暦変換ユーティリティ ────────────────────────────────
+const 元号一覧 = [
+  { 元号: "令和", 開始: new Date("2019-05-01"), 開始年: 2019 },
+  { 元号: "平成", 開始: new Date("1989-01-08"), 開始年: 1989 },
+  { 元号: "昭和", 開始: new Date("1926-12-25"), 開始年: 1926 },
+  { 元号: "大正", 開始: new Date("1912-07-30"), 開始年: 1912 },
+  { 元号: "明治", 開始: new Date("1868-01-25"), 開始年: 1868 },
+] as const;
+
+function 和暦変換(date: Date): string {
+  for (const { 元号, 開始, 開始年 } of 元号一覧) {
+    if (date >= 開始) {
+      const 年 = date.getFullYear() - 開始年 + 1;
+      const 年表示 = 年 === 1 ? "元" : String(年);
+      const 月 = date.getMonth() + 1;
+      const 日 = date.getDate();
+      return `${元号}${年表示}年${月}月${日}日`;
+    }
+  }
+  return `西暦${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+}
+
+function 生年月日和暦(date: Date): string {
+  // 生年月日の和暦のみ返す（例：昭和45年3月15日生まれ）
+  for (const { 元号, 開始, 開始年 } of 元号一覧) {
+    if (date >= 開始) {
+      const 年 = date.getFullYear() - 開始年 + 1;
+      const 年表示 = 年 === 1 ? "元" : String(年);
+      const 月 = date.getMonth() + 1;
+      const 日 = date.getDate();
+      return `${元号}${年表示}年${月}月${日}日`;
+    }
+  }
+  return "";
+}
+
+function 現在元号(date: Date): string {
+  for (const { 元号, 開始, 開始年 } of 元号一覧) {
+    if (date >= 開始) {
+      const 年 = date.getFullYear() - 開始年 + 1;
+      const 年表示 = 年 === 1 ? "元" : String(年);
+      return `${元号}${年表示}年`;
+    }
+  }
+  return "";
+}
+
 // ── 日付計算エンジン（age-calculator）──────────────────────
 function 日付計算エンジン(
   スラッグ: string,
@@ -1236,12 +1283,22 @@ function 日付計算エンジン(
   const 経過日 = Math.floor(
     (基準日.getTime() - 生年月日.getTime()) / 86400000
   );
+
+  // 干支計算
+  const 干支一覧 = ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
+  const 干支 = 干支一覧[(生年月日.getFullYear() - 4) % 12];
+
   const r: Record<string, string> = {};
   r["満年齢"] = `${満年齢} 歳`;
   r["数え年"] = `${数え年} 歳`;
+  r["生年月日（和暦）"] = 生年月日和暦(生年月日);
+  r["現在の元号年"] = 現在元号(基準日);
+  r["干支"] = `${干支}（${干支}年生まれ）`;
   r["次の誕生日まで（日）"] = `${次誕生日まで} 日`;
   r["生まれてから（日）"] = `${経過日.toLocaleString()} 日`;
   r["生まれてから（時間）"] = `${(経過日 * 24).toLocaleString()} 時間`;
+  // void suppression
+  void 出力項目;
   return r;
 }
 
