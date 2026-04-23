@@ -1,0 +1,84 @@
+.ツールUI { display: grid; gap: var(--スペース-xl); }
+@media (min-width: 768px) { .ツールUI { grid-template-columns: 1fr 1fr; } }
+
+.クイック群 { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.クイックボタン {
+  padding: 4px 10px; background: rgba(255,255,255,0.04);
+  border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm);
+  color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文);
+}
+.クイックボタン:hover { border-color: var(--カラー-ボーダー強); }
+.クイックボタンアクティブ {
+  background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ);
+  color: var(--カラー-プライマリ輝き);
+}
+
+.税率選択 {
+  display: flex; gap: 4px; margin-top: 4px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-md); padding: 4px;
+}
+.税率ボタン {
+  flex: 1; padding: 8px; background: transparent; border: none;
+  border-radius: var(--角丸-sm); color: var(--カラー-テキスト薄);
+  font-size: 12px; font-weight: 600; cursor: pointer;
+  transition: all var(--遷移-標準); font-family: var(--フォント-本文);
+}
+.税率ボタンアクティブ {
+  background: var(--グラデ-プライマリ); color: #fff; box-shadow: var(--影-プライマリ);
+}
+
+.注意書き {
+  font-size: 11px; color: var(--カラー-テキスト極薄); padding: var(--スペース-sm);
+  line-height: 1.6; border: 1px solid rgba(251,191,36,0.15);
+  border-radius: var(--角丸-sm); background: rgba(251,191,36,0.04);
+}
+
+/* ─── 結果 ─── */
+.結果コンテンツ { display: flex; flex-direction: column; gap: var(--スペース-md); }
+
+.メインカード {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: var(--スペース-lg);
+  background: linear-gradient(135deg, rgba(6,182,212,0.12) 0%, rgba(99,102,241,0.10) 100%);
+  border: 1px solid rgba(6,182,212,0.3); border-radius: var(--角丸-lg); text-align: center;
+}
+.メインラベル { font-size: 11px; font-weight: 600; color: var(--カラー-テキスト薄); text-transform: uppercase; letter-spacing: 0.06em; }
+.メイン値 {
+  font-size: 2.6rem; font-weight: 900; color: #06b6d4;
+  font-variant-numeric: tabular-nums; letter-spacing: -2px;
+}
+.メイン単位 { font-size: 1rem; letter-spacing: 0; }
+.年額 { font-size: 13px; color: rgba(6,182,212,0.7); font-weight: 600; }
+
+/* 繰下げ早見 */
+.繰下げカード {
+  padding: var(--スペース-md); background: rgba(255,255,255,0.02);
+  border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md);
+}
+.繰下げタイトル { font-size: 12px; font-weight: 700; color: var(--カラー-テキスト薄); margin-bottom: 8px; }
+.繰下げ行 {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 13px; color: var(--カラー-テキスト薄); padding: 5px 8px;
+  border-radius: var(--角丸-sm); gap: 8px;
+}
+.繰下げ行強調 {
+  background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.2);
+  color: #06b6d4; font-weight: 700;
+}
+.繰下げ金額 { font-weight: 700; min-width: 90px; text-align: right; }
+
+/* 累計 */
+.累計カード {
+  padding: var(--スペース-md); background: rgba(99,102,241,0.06);
+  border: 1px solid rgba(99,102,241,0.2); border-radius: var(--角丸-md);
+}
+.累計タイトル { font-size: 12px; font-weight: 700; color: #818cf8; margin-bottom: 8px; }
+.累計行 {
+  display: flex; justify-content: space-between; font-size: 13px;
+  color: var(--カラー-テキスト薄); padding: 5px 0;
+  border-bottom: 1px solid rgba(99,102,241,0.1);
+}
+.累計行:last-child { border-bottom: none; }
+.累計値 { font-weight: 800; color: #818cf8; }

@@ -25,6 +25,8 @@ const 高優先スラッグ = new Set([
   "bmi-calculator",
   "age-calculator",
   "word-counter",
+  "pension-simulator",
+  "take-home-reverse",
 ]);
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
