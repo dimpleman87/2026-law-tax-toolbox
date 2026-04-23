@@ -1,0 +1,92 @@
+.ツールUI {
+  display: grid; gap: var(--スペース-xl);
+}
+@media (min-width: 768px) { .ツールUI { grid-template-columns: 1fr 1fr; } }
+
+.クイック群 { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.クイックボタン {
+  padding: 4px 10px; background: rgba(255,255,255,0.04);
+  border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm);
+  color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文);
+}
+.クイックボタン:hover { border-color: var(--カラー-ボーダー強); }
+.クイックボタンアクティブ {
+  background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ);
+  color: var(--カラー-プライマリ輝き);
+}
+
+.チェックラベル {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 500; color: var(--カラー-テキスト薄);
+  cursor: pointer; padding: var(--スペース-sm) var(--スペース-md);
+  background: rgba(255,255,255,0.03); border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-sm);
+}
+
+.条件グリッド { display: grid; grid-template-columns: 1fr 1fr; gap: var(--スペース-sm); }
+
+.セクション区切り {
+  font-size: 11px; font-weight: 700; color: var(--カラー-プライマリ輝き);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  padding: var(--スペース-sm) 0;
+  border-bottom: 1px solid var(--カラー-プライマリ薄);
+}
+
+/* 結果 */
+.結果コンテンツ { display: flex; flex-direction: column; gap: var(--スペース-md); }
+
+.還付カード {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: var(--スペース-lg);
+  background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(6,182,212,0.08) 100%);
+  border: 1px solid rgba(16,185,129,0.3); border-radius: var(--角丸-lg); text-align: center;
+}
+.追徴カード {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: var(--スペース-lg);
+  background: linear-gradient(135deg, rgba(242,90,204,0.12) 0%, rgba(251,191,36,0.08) 100%);
+  border: 1px solid rgba(242,90,204,0.3); border-radius: var(--角丸-lg); text-align: center;
+}
+.メインラベル {
+  font-size: 12px; font-weight: 600; color: var(--カラー-テキスト薄);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.メイン値 {
+  font-size: 2.4rem; font-weight: 900;
+  background: var(--グラデ-プライマリ);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; font-variant-numeric: tabular-nums; letter-spacing: -1.5px;
+}
+.サブ説明 { font-size: 12px; color: var(--カラー-テキスト薄); }
+
+/* 税額フロー */
+.税額フロー {
+  padding: var(--スペース-md); background: rgba(255,255,255,0.03);
+  border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md);
+}
+.フロー行 {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; color: var(--カラー-テキスト薄);
+  padding: 4px 0; border-bottom: 1px solid var(--カラー-ボーダー);
+}
+.フロー行強調 {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 13px; font-weight: 700; color: var(--カラー-テキスト);
+  padding: 6px 0; border-bottom: 1px solid var(--カラー-ボーダー強);
+}
+.フロー還付 {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 14px; font-weight: 800; color: #10b981; padding: 6px 0;
+}
+.フロー追徴 {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 14px; font-weight: 800; color: #f25acc; padding: 6px 0;
+}
+
+.注意 {
+  font-size: 11px; color: var(--カラー-テキスト極薄); line-height: 1.6;
+  padding: var(--スペース-sm);
+  border: 1px solid rgba(251,191,36,0.15); border-radius: var(--角丸-sm);
+  background: rgba(251,191,36,0.04);
+}
