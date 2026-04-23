@@ -1,0 +1,177 @@
+/* ─── 検索ラッパー ─── */
+.検索ラッパー {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ─── 検索ボックス ─── */
+.検索ボックス {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(99, 102, 241, 0.3);
+  border-radius: 100px;
+  padding: 4px 8px 4px 18px;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.検索ボックスフォーカス {
+  border-color: rgba(99, 102, 241, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15), 0 8px 32px rgba(0,0,0,0.4);
+  border-radius: 16px 16px 0 0;
+}
+
+.検索アイコン {
+  flex-shrink: 0;
+  color: rgba(148, 163, 184, 0.7);
+  display: flex;
+  margin-right: 10px;
+}
+
+.検索入力 {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgba(248, 250, 252, 0.95);
+  font-size: 15px;
+  font-family: var(--フォント-本文);
+  padding: 12px 0;
+  min-width: 0;
+}
+
+.検索入力::placeholder {
+  color: rgba(100, 116, 139, 0.8);
+}
+
+/* Safari用 */
+.検索入力::-webkit-search-cancel-button { display: none; }
+
+.クリアボタン {
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 100px;
+  color: rgba(148, 163, 184, 0.7);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: all 0.15s;
+  font-family: var(--フォント-本文);
+  margin-right: 4px;
+}
+.クリアボタン:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+/* ─── ドロップダウン ─── */
+.ドロップダウン {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: rgba(15, 15, 26, 0.97);
+  border: 1.5px solid rgba(99, 102, 241, 0.5);
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.7);
+  backdrop-filter: blur(20px);
+  animation: ddFadeIn 0.12s ease-out;
+}
+
+@keyframes ddFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ドロップダウンヘッダー {
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(100, 116, 139, 0.8);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+/* ─── 検索結果アイテム ─── */
+.検索結果アイテム {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  text-decoration: none;
+  transition: background 0.12s;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.検索結果アイテム:last-child { border-bottom: none; }
+.検索結果アイテム:hover,
+.検索結果アイテム選択 {
+  background: rgba(99, 102, 241, 0.12);
+}
+
+.結果アイコン {
+  font-size: 22px;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+}
+
+.結果テキスト {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.結果タイトル {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(248, 250, 252, 0.95);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.結果説明 {
+  font-size: 11px;
+  color: rgba(148, 163, 184, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.結果カテゴリ {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 100px;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: rgba(165, 180, 252, 0.9);
+}
+
+.検索無結果 {
+  padding: 20px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(100, 116, 139, 0.7);
+}
+
+/* モバイル */
+@media (max-width: 640px) {
+  .検索ボックス { padding-left: 14px; }
+  .検索入力 { font-size: 14px; }
+  .結果カテゴリ { display: none; }
+}
