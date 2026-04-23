@@ -1,0 +1,94 @@
+.ツールUI { display: grid; gap: var(--スペース-xl); }
+@media (min-width: 768px) { .ツールUI { grid-template-columns: 1fr 1fr; } }
+
+.クイック群 { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.クイックボタン {
+  padding: 4px 10px; background: rgba(255,255,255,0.04);
+  border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm);
+  color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文);
+}
+.クイックボタン:hover { border-color: var(--カラー-ボーダー強); }
+.クイックボタンアクティブ {
+  background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ);
+  color: var(--カラー-プライマリ輝き);
+}
+
+.税率選択 {
+  display: flex; gap: 4px; margin-top: 4px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-md); padding: 4px;
+}
+.税率ボタン {
+  flex: 1; padding: 8px; background: transparent; border: none;
+  border-radius: var(--角丸-sm); color: var(--カラー-テキスト薄);
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  transition: all var(--遷移-標準); font-family: var(--フォント-本文);
+}
+.税率ボタンアクティブ {
+  background: var(--グラデ-プライマリ); color: #fff; box-shadow: var(--影-プライマリ);
+}
+
+.注意書き {
+  font-size: 11px; color: var(--カラー-テキスト極薄); padding: var(--スペース-sm);
+  line-height: 1.6; border: 1px solid rgba(251,191,36,0.15);
+  border-radius: var(--角丸-sm); background: rgba(251,191,36,0.04);
+}
+
+/* 結果 */
+.結果コンテンツ { display: flex; flex-direction: column; gap: var(--スペース-md); }
+
+.メインカード {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: var(--スペース-lg);
+  background: linear-gradient(135deg, rgba(245,158,11,0.12) 0%, rgba(242,90,204,0.08) 100%);
+  border: 1px solid rgba(245,158,11,0.3); border-radius: var(--角丸-lg); text-align: center;
+}
+.メインラベル { font-size: 12px; font-weight: 600; color: var(--カラー-テキスト薄); text-transform: uppercase; letter-spacing: 0.06em; }
+.メイン値 {
+  font-size: 2.4rem; font-weight: 900; color: #f59e0b;
+  font-variant-numeric: tabular-nums; letter-spacing: -1.5px;
+}
+.メイン単位 { font-size: 1rem; letter-spacing: 0; }
+.実効税率 { font-size: 12px; color: rgba(245,158,11,0.7); }
+
+.非課税バッジ {
+  padding: var(--スペース-md);
+  background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.3);
+  border-radius: var(--角丸-md); font-size: 13px; color: #10b981; font-weight: 600;
+}
+
+.節税カード {
+  padding: var(--スペース-md); background: rgba(255,255,255,0.03);
+  border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md);
+}
+.節税タイトル { font-size: 12px; font-weight: 700; color: var(--カラー-テキスト); margin-bottom: 8px; }
+.節税行 {
+  display: flex; justify-content: space-between; font-size: 13px;
+  color: var(--カラー-テキスト薄); padding: 4px 0;
+  border-bottom: 1px solid var(--カラー-ボーダー);
+}
+.節税行強調 {
+  display: flex; justify-content: space-between; font-size: 14px; font-weight: 800;
+  padding: 6px 0;
+}
+
+/* 税率表 */
+.税率表 {
+  padding: var(--スペース-md); background: rgba(255,255,255,0.02);
+  border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md);
+}
+.税率表ラベル {
+  font-size: 11px; font-weight: 700; color: var(--カラー-テキスト薄);
+  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;
+}
+.税率行 {
+  display: flex; justify-content: space-between; font-size: 12px;
+  color: var(--カラー-テキスト薄); padding: 4px 0;
+  border-bottom: 1px solid var(--カラー-ボーダー);
+}
+.税率行:last-child { border-bottom: none; }
+.税率行強調 {
+  background: rgba(245,158,11,0.1); margin: 0 -12px; padding: 4px 12px;
+  border-radius: 0; font-weight: 700; color: #f59e0b;
+}

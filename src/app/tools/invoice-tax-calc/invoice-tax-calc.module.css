@@ -1,0 +1,64 @@
+.ツールUI { display: grid; gap: var(--スペース-xl); }
+@media (min-width: 768px) { .ツールUI { grid-template-columns: 1fr 1fr; } }
+
+.クイック群 { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.クイックボタン {
+  padding: 4px 10px; background: rgba(255,255,255,0.04);
+  border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm);
+  color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文);
+}
+.クイックボタン:hover { border-color: var(--カラー-ボーダー強); }
+.クイックボタンアクティブ {
+  background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ);
+  color: var(--カラー-プライマリ輝き);
+}
+.注意書き {
+  font-size: 11px; color: var(--カラー-テキスト極薄); padding: var(--スペース-sm);
+  line-height: 1.6; border: 1px solid rgba(251,191,36,0.15);
+  border-radius: var(--角丸-sm); background: rgba(251,191,36,0.04);
+}
+
+/* 結果 */
+.結果コンテンツ { display: flex; flex-direction: column; gap: var(--スペース-md); }
+
+.おすすめバッジ {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding: var(--スペース-sm) var(--スペース-md);
+  background: rgba(38,217,202,0.08); border: 1px solid rgba(38,217,202,0.25);
+  border-radius: var(--角丸-md); font-size: 13px; color: var(--カラー-テキスト薄);
+}
+
+/* 比較表 */
+.比較表 {
+  background: rgba(255,255,255,0.03); border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-md); overflow: hidden;
+}
+.比較ヘッダー {
+  display: grid; grid-template-columns: 2fr 1.2fr 1.2fr 1fr;
+  padding: 8px 12px;
+  background: rgba(99,102,241,0.1);
+  font-size: 11px; font-weight: 700; color: var(--カラー-テキスト薄);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--カラー-ボーダー強);
+}
+.比較行 {
+  display: grid; grid-template-columns: 2fr 1.2fr 1.2fr 1fr;
+  padding: 10px 12px; font-size: 12px; color: var(--カラー-テキスト薄);
+  border-bottom: 1px solid var(--カラー-ボーダー); align-items: center;
+  transition: background var(--遷移-標準);
+}
+.比較行:last-child { border-bottom: none; }
+.比較行強調 {
+  background: rgba(38,217,202,0.06);
+  border-left: 3px solid #26d9ca;
+}
+.比較方式 { display: flex; flex-direction: column; gap: 1px; font-weight: 600; color: var(--カラー-テキスト); }
+.比較注記 { font-size: 10px; color: var(--カラー-テキスト極薄); font-weight: 400; }
+
+.売上消費税メモ {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: var(--スペース-sm) var(--スペース-md);
+  background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-sm); font-size: 12px; color: var(--カラー-テキスト薄);
+}

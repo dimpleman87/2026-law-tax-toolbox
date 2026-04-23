@@ -1,0 +1,98 @@
+.ツールUI { display: grid; gap: var(--スペース-xl); }
+@media (min-width: 768px) { .ツールUI { grid-template-columns: 1fr 1fr; } }
+
+.モードグリッド { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 4px; }
+.モードボタン {
+  padding: 8px 4px; background: rgba(255,255,255,0.04);
+  border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm);
+  color: var(--カラー-テキスト薄); font-size: 11px; font-weight: 600;
+  cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文);
+  text-align: center;
+}
+.モードボタン:hover { border-color: var(--カラー-ボーダー強); color: var(--カラー-テキスト); }
+.モードボタンアクティブ {
+  background: var(--グラデ-プライマリ); border-color: transparent;
+  color: #fff; box-shadow: var(--影-プライマリ);
+}
+
+.クイック群 { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.クイックボタン {
+  padding: 4px 10px; background: rgba(255,255,255,0.04);
+  border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm);
+  color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文);
+}
+.クイックボタン:hover { border-color: var(--カラー-ボーダー強); }
+.クイックボタンアクティブ {
+  background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ);
+  color: var(--カラー-プライマリ輝き);
+}
+
+.条件グリッド { display: grid; grid-template-columns: 1fr 1fr; gap: var(--スペース-md); }
+.区切り {
+  font-size: 11px; font-weight: 700; color: var(--カラー-プライマリ輝き);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  padding: var(--スペース-sm) 0; border-bottom: 1px solid var(--カラー-プライマリ薄);
+}
+.チェックラベル {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 500; color: var(--カラー-テキスト薄);
+  cursor: pointer; padding: var(--スペース-sm) var(--スペース-md);
+  background: rgba(255,255,255,0.03); border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-sm);
+}
+
+/* 結果 */
+.結果コンテンツ { display: flex; flex-direction: column; gap: var(--スペース-md); }
+
+.申告要バッジ {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: var(--スペース-md);
+  background: rgba(242,90,204,0.08); border: 1px solid rgba(242,90,204,0.3);
+  border-radius: var(--角丸-md);
+}
+.申告不要バッジ {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: var(--スペース-md);
+  background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.3);
+  border-radius: var(--角丸-md);
+}
+.バッジアイコン { font-size: 1.5rem; }
+.バッジタイトル { font-size: 14px; font-weight: 700; color: var(--カラー-テキスト); }
+.バッジサブ { font-size: 11px; color: var(--カラー-テキスト薄); margin-top: 2px; }
+
+.手取りカード {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: var(--スペース-md);
+  background: linear-gradient(135deg, rgba(99,102,241,0.10) 0%, rgba(38,217,202,0.08) 100%);
+  border: 1px solid rgba(99,102,241,0.25); border-radius: var(--角丸-lg); text-align: center;
+}
+.手取りラベル { font-size: 11px; font-weight: 600; color: var(--カラー-テキスト薄); text-transform: uppercase; letter-spacing: 0.06em; }
+.手取り値 { font-size: 2rem; font-weight: 900; color: #26d9ca; font-variant-numeric: tabular-nums; }
+.手取り率 { font-size: 12px; color: rgba(38,217,202,0.7); }
+
+.節税メモ {
+  padding: var(--スペース-sm) var(--スペース-md);
+  background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2);
+  border-radius: var(--角丸-sm); font-size: 13px; color: #10b981; font-weight: 600;
+}
+
+.節税ヒント {
+  padding: var(--スペース-md); background: rgba(38,217,202,0.06);
+  border: 1px solid rgba(38,217,202,0.2); border-radius: var(--角丸-md);
+}
+.ヒントタイトル { font-size: 12px; font-weight: 700; color: var(--カラー-テキスト); margin-bottom: 8px; }
+.ヒントリスト { margin: 0; padding-left: 18px; }
+.ヒントリスト li { font-size: 12px; color: var(--カラー-テキスト薄); line-height: 1.7; margin-bottom: 2px; }
+
+.スケジュール {
+  padding: var(--スペース-md); background: rgba(255,255,255,0.03);
+  border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md);
+}
+.スケジュールタイトル { font-size: 12px; font-weight: 700; color: var(--カラー-テキスト); margin-bottom: 8px; }
+.スケジュール行 {
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--カラー-テキスト薄);
+  padding: 4px 0; border-bottom: 1px solid var(--カラー-ボーダー);
+}
+.スケジュール行:last-child { border-bottom: none; }
