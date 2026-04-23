@@ -1,0 +1,111 @@
+.ツールUI {
+  display: grid;
+  gap: var(--スペース-xl);
+}
+@media (min-width: 768px) {
+  .ツールUI { grid-template-columns: 1fr 1fr; }
+}
+
+.モード選択 {
+  display: flex; gap: 4px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-md);
+  padding: 4px;
+  margin-top: 4px;
+}
+.モードボタン {
+  flex: 1; padding: 8px;
+  background: transparent; border: none;
+  border-radius: var(--角丸-sm);
+  color: var(--カラー-テキスト薄);
+  font-size: 13px; font-weight: 600;
+  cursor: pointer;
+  transition: all var(--遷移-標準);
+  font-family: var(--フォント-本文);
+}
+.モードボタンアクティブ {
+  background: var(--グラデ-プライマリ);
+  color: #fff;
+  box-shadow: var(--影-プライマリ);
+}
+
+.クイック群 {
+  display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px;
+}
+.クイックボタン {
+  padding: 4px 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-sm);
+  color: var(--カラー-テキスト薄);
+  font-size: 12px; font-weight: 600;
+  cursor: pointer;
+  transition: all var(--遷移-標準);
+  font-family: var(--フォント-本文);
+}
+.クイックボタン:hover { border-color: var(--カラー-ボーダー強); }
+.クイックボタンアクティブ {
+  background: var(--カラー-プライマリ薄);
+  border-color: var(--カラー-プライマリ);
+  color: var(--カラー-プライマリ輝き);
+}
+
+/* 結果 */
+.結果コンテンツ {
+  display: flex; flex-direction: column; gap: var(--スペース-md);
+}
+
+.メインカード {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: var(--スペース-lg);
+  background: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(168,85,247,0.08) 100%);
+  border: 1px solid rgba(99,102,241,0.3);
+  border-radius: var(--角丸-lg);
+  text-align: center;
+}
+.メインラベル {
+  font-size: 12px; font-weight: 600; color: var(--カラー-テキスト薄);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.メイン値 {
+  font-size: 2.4rem; font-weight: 900;
+  background: var(--グラデ-プライマリ);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1.5px;
+}
+.メイン単位 { font-size: 1rem; letter-spacing: 0; }
+.税率バッジ {
+  padding: 2px 10px;
+  background: rgba(99,102,241,0.15);
+  border: 1px solid rgba(99,102,241,0.3);
+  border-radius: 100px;
+  font-size: 11px; font-weight: 700;
+  color: var(--カラー-プライマリ輝き);
+}
+
+/* 早見表 */
+.早見表 {
+  padding: var(--スペース-md);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-md);
+}
+.早見表ラベル {
+  font-size: 11px; font-weight: 700;
+  color: var(--カラー-テキスト薄);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+.早見表グリッド {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+}
+.早見表アイテム {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 12px;
+}
+.早見表税抜 { color: var(--カラー-テキスト薄); font-weight: 600; min-width: 24px; }
+.早見表矢印 { color: var(--カラー-テキスト極薄); }
+.早見表税込 { color: #26d9ca; font-weight: 700; }
