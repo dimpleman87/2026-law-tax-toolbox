@@ -11,11 +11,25 @@
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { 全スラッグ取得, ツール取得, 全ツール取得, 同一カテゴリツール取得 } from "@/lib/load-tools";
 import ToolRenderer from "@/components/ToolRenderer";
 import ToolCard from "@/components/ツールカード";
 import AdSlot from "@/components/AdSlot";
 import { SITE_URL } from "@/lib/constants";
+
+// ============================================================
+// カテゴリ → アンカー マッピング
+// ============================================================
+const カテゴリアンカーマップ: Record<string, string> = {
+  "金融・投資": "finance",
+  "ビジネス・経理": "business",
+  "法律・税務": "legal",
+  "IT・DX": "it",
+  "テキスト": "text",
+  "健康・生活": "health",
+  "変換・計算": "convert",
+};
 
 // ============================================================
 // 静的パス生成（ビルド時に全ツールページを SSG）
@@ -95,55 +109,104 @@ export default async function ツールページ({
   // 同一カテゴリの他のツールを取得（内回遊率向上のため）
   const 同一カテゴリツール一覧 = await 同一カテゴリツール取得(slug, ツール.カテゴリ);
 
+  const ページURL = `${SITE_URL}/tools/${encodeURIComponent(ツール.スラッグ)}`;
+  const カテゴリアンカー = カテゴリアンカーマップ[ツール.カテゴリ] ?? "tools";
+
+  // JSON-LD 構造化データ
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: ツール.タイトル,
+    description: ツール.説明,
+    url: ページURL,
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Any",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "JPY",
+    },
+    inLanguage: "ja",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "ホーム",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: ツール.カテゴリ,
+          item: `${SITE_URL}/#cat-${カテゴリアンカー}`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: ツール.タイトル.split("｜")[0],
+          item: ページURL,
+        },
+      ],
+    },
+  };
+
   return (
     <>
-      {/* 上部広告 */}
-      {ツール.広告配置.includes("top") && (
-        <div className="広告ラッパー">
-          <AdSlot 位置="top" />
-        </div>
-      )}
+      {/* JSON-LD 構造化データ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
-      <div className="tool-page-header">
-        <div className="tool-page-container">
-          <nav className="breadcrumb-nav" aria-label="Breadcrumb">
+      <div className="ツールページヘッダー">
+        <div className="ツールページコンテナ">
+          <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
-              <li><a href="/">ホーム</a></li>
-              <li aria-hidden="true">&gt;</li>
+              <li><Link href="/">ホーム</Link></li>
+              <li aria-hidden="true">›</li>
               <li>
-                <a href={`/?category=${encodeURIComponent(ツール.カテゴリ)}`}>
+                <Link href={`/#cat-${カテゴリアンカー}`}>
                   {ツール.カテゴリ}
-                </a>
+                </Link>
               </li>
-              <li aria-hidden="true">&gt;</li>
-              <li>{ツール.タイトル}</li>
+              <li aria-hidden="true">›</li>
+              <li>{ツール.タイトル.split("｜")[0]}</li>
             </ol>
           </nav>
-          <h1 className="tool-page-title">{ツール.タイトル}</h1>
-          <p className="tool-page-description">{ツール.説明}</p>
+          <h1 className="ツールページタイトル">{ツール.タイトル}</h1>
+          <p className="ツールページ説明">{ツール.説明}</p>
         </div>
       </div>
 
       {/* メインツールUI */}
-      <div className="tool-page-main">
-        <div className="tool-page-container tool-layout">
-          <div className="tool-content">
-            {/* 中部広告 */}
-            {ツール.広告配置.includes("middle") && (
-              <div className="ad-wrapper middle-ad">
-                <AdSlot 位置="middle" />
-              </div>
-            )}
+      <main className="ツールページメイン">
+        <div className="ツールページコンテナ">
+          {/* 上部広告 */}
+          {ツール.広告配置.includes("top") && (
+            <div className="広告ラッパー" style={{ padding: 0, marginBottom: "var(--スペース-lg)" }}>
+              <div className="広告ラベル">スポンサー</div>
+              <AdSlot 位置="top" />
+            </div>
+          )}
 
-            {/* ツールUI（ロジック種別に応じて動的レンダリング） */}
-<ToolRenderer ツール={ツール} />
-          </div>
+          {/* ツールUI（ロジック種別に応じて動的レンダリング） */}
+          <ToolRenderer ツール={ツール} />
+
+          {/* 中部広告 */}
+          {ツール.広告配置.includes("middle") && (
+            <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
+              <div className="広告ラベル">スポンサー</div>
+              <AdSlot 位置="middle" />
+            </div>
+          )}
         </div>
-      </div>
+      </main>
 
       {/* 関連・おすすめツールセクション */}
       {(手動関連ツール一覧.length > 0 || 同一カテゴリツール一覧.length > 0) && (
-        <section className="関連ツールセクション" aria-label="Related tools">
+        <section className="関連ツールセクション" aria-label="関連ツール">
           <div className="ツールページコンテナ">
             {手動関連ツール一覧.length > 0 && (
               <>
@@ -173,6 +236,7 @@ export default async function ツールページ({
       {/* 下部広告 */}
       {ツール.広告配置.includes("bottom") && (
         <div className="広告ラッパー">
+          <div className="広告ラベル">スポンサー</div>
           <AdSlot 位置="bottom" />
         </div>
       )}

@@ -1,0 +1,110 @@
+.ツールUI {
+  display: grid;
+  gap: var(--スペース-xl);
+}
+@media (min-width: 768px) {
+  .ツールUI { grid-template-columns: 1fr 1fr; }
+}
+
+.金利クイック {
+  display: flex; gap: 4px; flex-wrap: wrap; margin-top: 4px;
+}
+
+.クイックボタン {
+  padding: 4px 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-sm);
+  color: var(--カラー-テキスト薄);
+  font-size: 12px; font-weight: 600;
+  cursor: pointer;
+  transition: all var(--遷移-標準);
+  font-family: var(--フォント-本文);
+}
+.クイックボタン:hover { border-color: var(--カラー-ボーダー強); color: var(--カラー-テキスト); }
+.クイックボタンアクティブ {
+  background: var(--カラー-プライマリ薄);
+  border-color: var(--カラー-プライマリ);
+  color: var(--カラー-プライマリ輝き);
+}
+
+.返済方式選択 {
+  display: flex; gap: 4px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-md);
+  padding: 4px;
+}
+.方式ボタン {
+  flex: 1; padding: 8px;
+  background: transparent; border: none;
+  border-radius: var(--角丸-sm);
+  color: var(--カラー-テキスト薄);
+  font-size: 13px; font-weight: 600;
+  cursor: pointer;
+  transition: all var(--遷移-標準);
+  font-family: var(--フォント-本文);
+}
+.方式ボタンアクティブ {
+  background: var(--グラデ-プライマリ);
+  color: #fff;
+  box-shadow: var(--影-プライマリ);
+}
+
+/* 結果 */
+.結果コンテンツ {
+  display: flex; flex-direction: column; gap: var(--スペース-md);
+}
+
+.メイン結果カード {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: var(--スペース-lg);
+  background: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(168,85,247,0.08) 100%);
+  border: 1px solid rgba(99,102,241,0.3);
+  border-radius: var(--角丸-lg);
+  text-align: center;
+}
+.メイン結果ラベル {
+  font-size: 12px; font-weight: 600; color: var(--カラー-テキスト薄);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.メイン結果値 {
+  font-size: 2.5rem; font-weight: 900;
+  background: var(--グラデ-プライマリ);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -2px;
+}
+.メイン結果単位 {
+  font-size: 1rem; letter-spacing: 0;
+}
+
+.強調値 { color: #f59e0b !important; }
+.警告値 { color: #f25acc !important; }
+
+.ボーナス表示 {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: var(--スペース-sm) var(--スペース-md);
+  background: rgba(251,191,36,0.08);
+  border: 1px solid rgba(251,191,36,0.2);
+  border-radius: var(--角丸-sm);
+  font-size: 13px; color: var(--カラー-テキスト薄);
+}
+
+.繰上ヒント {
+  padding: var(--スペース-md);
+  background: rgba(38,217,202,0.08);
+  border: 1px solid rgba(38,217,202,0.2);
+  border-radius: var(--角丸-md);
+  font-size: 13px; color: var(--カラー-テキスト薄); line-height: 1.6;
+}
+
+.返済比率 {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: var(--スペース-sm) var(--スペース-md);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-sm);
+  font-size: 13px; color: var(--カラー-テキスト薄);
+}
