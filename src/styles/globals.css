@@ -1644,6 +1644,38 @@ body {
 .最終CTAボタン.サブ:hover { border-color: var(--カラー-プライマリ); color: var(--カラー-テキスト); }
 
 /* ============================================================
+   ツールSEO本文
+   ============================================================ */
+.ツールSEO本文 {
+  margin-top: var(--スペース-2xl);
+  padding-top: var(--スペース-xl);
+  border-top: 1px solid var(--カラー-ボーダー);
+}
+.ツールSEO本文コンテンツ {
+  max-width: 720px;
+  font-size: 0.95rem;
+  color: var(--カラー-テキスト薄);
+  line-height: 1.85;
+}
+.ツールSEO本文コンテンツ h2 {
+  font-size: 1.2rem; font-weight: 700; color: var(--カラー-テキスト);
+  margin: var(--スペース-xl) 0 var(--スペース-sm);
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--カラー-プライマリ薄);
+}
+.ツールSEO本文コンテンツ h2:first-child { margin-top: 0; }
+.ツールSEO本文コンテンツ h3 {
+  font-size: 1.0rem; font-weight: 600; color: var(--カラー-テキスト);
+  margin: var(--スペース-lg) 0 4px;
+}
+.ツールSEO本文コンテンツ p { margin-bottom: var(--スペース-md); }
+.ツールSEO本文コンテンツ ul {
+  margin: var(--スペース-sm) 0 var(--スペース-md); padding-left: 1.4em;
+}
+.ツールSEO本文コンテンツ li { margin-bottom: 4px; list-style: disc; }
+.ツールSEO本文コンテンツ strong { color: var(--カラー-テキスト); font-weight: 700; }
+
+/* ============================================================
    アクセシビリティ
    ============================================================ */
 :focus-visible {

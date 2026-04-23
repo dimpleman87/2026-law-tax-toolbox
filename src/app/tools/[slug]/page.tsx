@@ -201,6 +201,26 @@ export default async function ツールページ({
               <AdSlot 位置="middle" />
             </div>
           )}
+
+          {/* SEO本文（JSON 本文フィールドをMarkdown変換して表示） */}
+          {ツール.本文 && (
+            <section className="ツールSEO本文" aria-label="解説">
+              <div
+                className="ツールSEO本文コンテンツ"
+                dangerouslySetInnerHTML={{
+                  __html: ツール.本文
+                    .replace(/^## (.+)$/gm, "<h2>$1</h2>")
+                    .replace(/^### (.+)$/gm, "<h3>$1</h3>")
+                    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+                    .replace(/^- (.+)$/gm, "<li>$1</li>")
+                    .replace(/(<li>[\s\S]*?<\/li>\n?)+/g, (m) => `<ul>${m}</ul>`)
+                    .replace(/\n\n/g, "</p><p>")
+                    .replace(/^(?!<[hul])/gm, "")
+                    .replace(/<p><\/p>/g, ""),
+                }}
+              />
+            </section>
+          )}
         </div>
       </main>
 

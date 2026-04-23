@@ -39,13 +39,13 @@ export default function フッター() {
               <span className="フッターロゴ">ToolBox</span>
             </Link>
             <p className="フッター説明">
-              ビジネス・金融・DX・テキスト解析まで51種類の無料オンラインツール集。
+              ビジネス・金融・DX・テキスト解析まで62種類の無料オンラインツール集。
               登録不要・完全無料でブラウザ上からすぐ使えます。
             </p>
             <div className="フッターバッジ群">
               <span className="フッターバッジ">✓ 完全無料</span>
               <span className="フッターバッジ">✓ 登録不要</span>
-              <span className="フッターバッジ">✓ 51種類</span>
+              <span className="フッターバッジ">✓ 62種類</span>
             </div>
           </div>
 
