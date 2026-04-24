@@ -32,6 +32,8 @@ const 高優先スラッグ = new Set([
   "corporate-tax-estimate",
   "depreciation-calc",
   "resignation-pay-estimate",
+  "crypto-tax-2026",
+  "high-cost-medical-2026",
 ]);
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

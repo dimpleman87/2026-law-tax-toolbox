@@ -1,0 +1,37 @@
+.ツールUI { display: grid; gap: var(--スペース-xl); }
+@media (min-width: 768px) { .ツールUI { grid-template-columns: 1fr 1fr; } }
+
+.クイック群 { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.クイックボタン { padding: 4px 10px; background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm); color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600; cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文); }
+.クイックボタン:hover { border-color: var(--カラー-ボーダー強); }
+.クイックボタンアクティブ { background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ); color: var(--カラー-プライマリ輝き); }
+
+.控除選択 { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+.控除ボタン { padding: 8px 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm); color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600; cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文); text-align: left; }
+.控除ボタン:hover { border-color: var(--カラー-ボーダー強); }
+.控除ボタンアクティブ { background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ); color: var(--カラー-プライマリ輝き); }
+
+.注意書き { font-size: 11px; color: var(--カラー-テキスト極薄); padding: var(--スペース-sm); line-height: 1.6; border: 1px solid rgba(251,191,36,0.15); border-radius: var(--角丸-sm); background: rgba(251,191,36,0.04); }
+
+/* ─── 結果 ─── */
+.結果コンテンツ { display: flex; flex-direction: column; gap: var(--スペース-md); }
+
+.比較カード { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; padding: var(--スペース-md); background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-lg); align-items: center; }
+.比較左 { display: flex; flex-direction: column; gap: 4px; text-align: center; }
+.比較右 { display: flex; flex-direction: column; gap: 4px; text-align: center; }
+.比較中央 { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 8px; }
+.比較ラベル { font-size: 10px; font-weight: 700; color: var(--カラー-テキスト極薄); text-transform: uppercase; }
+.比較値 { font-size: 1.4rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+.比較税率 { font-size: 11px; color: var(--カラー-テキスト極薄); }
+.有利バッジ新 { padding: 4px 8px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.4); border-radius: var(--角丸-sm); color: #10b981; font-size: 11px; font-weight: 800; text-align: center; white-space: nowrap; }
+.有利バッジ旧 { padding: 4px 8px; background: rgba(242,90,204,0.15); border: 1px solid rgba(242,90,204,0.4); border-radius: var(--角丸-sm); color: #f25acc; font-size: 11px; font-weight: 800; text-align: center; white-space: nowrap; }
+.差額 { font-size: 11px; font-weight: 700; color: var(--カラー-テキスト薄); text-align: center; line-height: 1.4; }
+
+.内訳カード { background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); padding: var(--スペース-md); }
+.内訳タイトル { font-size: 12px; font-weight: 700; color: var(--カラー-テキスト薄); margin-bottom: 8px; }
+.内訳行 { display: flex; justify-content: space-between; font-size: 12px; color: var(--カラー-テキスト薄); padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.内訳行:last-child { border-bottom: none; }
+
+.ヒントカード { padding: var(--スペース-md); background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.2); border-radius: var(--角丸-md); }
+.ヒントタイトル { font-size: 12px; font-weight: 700; color: #10b981; margin-bottom: 6px; }
+.ヒントカード p { font-size: 12px; color: var(--カラー-テキスト薄); line-height: 1.6; margin: 0; }
