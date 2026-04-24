@@ -1,0 +1,56 @@
+.ツールUI { display: grid; gap: var(--スペース-xl); }
+@media (min-width: 768px) { .ツールUI { grid-template-columns: 1fr 1fr; } }
+
+.クイック群 { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.クイックボタン {
+  padding: 4px 10px; background: rgba(255,255,255,0.04);
+  border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm);
+  color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文);
+}
+.クイックボタン:hover { border-color: var(--カラー-ボーダー強); }
+.クイックボタンアクティブ { background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ); color: var(--カラー-プライマリ輝き); }
+
+.税率選択 {
+  display: flex; gap: 4px; margin-top: 4px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー);
+  border-radius: var(--角丸-md); padding: 4px;
+}
+.税率ボタン {
+  flex: 1; padding: 8px; background: transparent; border: none;
+  border-radius: var(--角丸-sm); color: var(--カラー-テキスト薄);
+  font-size: 12px; font-weight: 600; cursor: pointer;
+  transition: all var(--遷移-標準); font-family: var(--フォント-本文);
+}
+.税率ボタンアクティブ { background: var(--グラデ-プライマリ); color: #fff; box-shadow: var(--影-プライマリ); }
+
+/* 利回りグリッド */
+.結果コンテンツ { display: flex; flex-direction: column; gap: var(--スペース-md); }
+
+.利回りグリッド { display: grid; grid-template-columns: 1fr 1fr; gap: var(--スペース-md); }
+.利回りカード {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: var(--スペース-lg);
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--角丸-lg); text-align: center;
+}
+.利回りラベル { font-size: 11px; font-weight: 600; color: var(--カラー-テキスト薄); text-transform: uppercase; letter-spacing: 0.05em; }
+.利回り値 { font-size: 2.2rem; font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: -1.5px; }
+.利回り単位 { font-size: 1rem; }
+.利回り説明 { font-size: 10px; color: var(--カラー-テキスト極薄); }
+.判定バッジ { font-size: 12px; font-weight: 700; padding: 3px 12px; border-radius: 999px; }
+
+/* CF */
+.CFカード { padding: var(--スペース-md); background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); }
+.CFタイトル { font-size: 12px; font-weight: 700; color: var(--カラー-テキスト薄); margin-bottom: 8px; }
+.CF行 { display: flex; justify-content: space-between; font-size: 13px; color: var(--カラー-テキスト薄); padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.CF仕切り { height: 1px; background: var(--カラー-ボーダー強); margin: 4px 0; }
+.CF合計行 { display: flex; justify-content: space-between; font-size: 15px; font-weight: 900; padding: 4px 0; }
+.CF月 { font-size: 11px; color: var(--カラー-テキスト極薄); text-align: right; margin-top: 4px; }
+
+/* ローン */
+.ローンカード { padding: var(--スペース-md); background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.2); border-radius: var(--角丸-md); }
+.ローンタイトル { font-size: 12px; font-weight: 700; color: #818cf8; margin-bottom: 8px; }
+.ローン行 { display: flex; justify-content: space-between; font-size: 13px; color: var(--カラー-テキスト薄); padding: 4px 0; border-bottom: 1px solid rgba(99,102,241,0.1); }
+.ローン行:last-child { border-bottom: none; }
+.ローン値 { font-weight: 800; color: #818cf8; }

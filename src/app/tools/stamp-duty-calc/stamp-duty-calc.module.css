@@ -1,0 +1,54 @@
+.ツールUI { display: grid; gap: var(--スペース-xl); }
+@media (min-width: 768px) { .ツールUI { grid-template-columns: 1fr 1fr; } }
+
+.クイック群 { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.クイックボタン {
+  padding: 4px 10px; background: rgba(255,255,255,0.04);
+  border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm);
+  color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文);
+}
+.クイックボタン:hover { border-color: var(--カラー-ボーダー強); }
+.クイックボタンアクティブ { background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ); color: var(--カラー-プライマリ輝き); }
+
+.文書選択 { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.文書ボタン {
+  padding: 7px 14px; background: rgba(255,255,255,0.04);
+  border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md);
+  color: var(--カラー-テキスト薄); font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文);
+}
+.文書ボタン:hover { border-color: var(--カラー-ボーダー強); }
+.文書ボタンアクティブ { background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ); color: var(--カラー-プライマリ輝き); }
+
+.文書説明 {
+  font-size: 12px; color: var(--カラー-テキスト薄); padding: var(--スペース-sm);
+  line-height: 1.6; border-left: 3px solid var(--カラー-プライマリ);
+  background: rgba(255,255,255,0.02); border-radius: 0 var(--角丸-sm) var(--角丸-sm) 0;
+}
+
+.早見表 { padding: var(--スペース-md); background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); }
+.早見表タイトル { font-size: 11px; font-weight: 700; color: var(--カラー-テキスト薄); margin-bottom: 8px; }
+.早見表行 { display: flex; justify-content: space-between; font-size: 12px; color: var(--カラー-テキスト薄); padding: 4px 6px; border-radius: var(--角丸-sm); }
+.早見表行強調 { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.25); color: #f59e0b; font-weight: 700; }
+.早見表税額 { font-weight: 700; min-width: 60px; text-align: right; }
+
+/* ─── 結果 ─── */
+.結果コンテンツ { display: flex; flex-direction: column; gap: var(--スペース-md); }
+
+.非課税カード { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: var(--スペース-xl); background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.3); border-radius: var(--角丸-lg); text-align: center; }
+.非課税アイコン { font-size: 2.5rem; }
+.非課税タイトル { font-size: 1.2rem; font-weight: 900; color: #10b981; }
+.非課税説明 { font-size: 13px; color: var(--カラー-テキスト薄); line-height: 1.6; }
+
+.メインカード { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: var(--スペース-lg); background: linear-gradient(135deg, rgba(245,158,11,0.10) 0%, rgba(242,90,204,0.08) 100%); border: 1px solid rgba(245,158,11,0.3); border-radius: var(--角丸-lg); text-align: center; }
+.メインラベル { font-size: 11px; font-weight: 600; color: var(--カラー-テキスト薄); text-transform: uppercase; letter-spacing: 0.06em; }
+.メイン値 { font-size: 2.8rem; font-weight: 900; color: #f59e0b; font-variant-numeric: tabular-nums; letter-spacing: -2px; }
+.メイン単位 { font-size: 1rem; }
+.軽減バッジ { font-size: 12px; color: #10b981; font-weight: 700; }
+
+.ポイントカード { padding: var(--スペース-md); background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.2); border-radius: var(--角丸-md); }
+.ポイントタイトル { font-size: 12px; font-weight: 700; color: #818cf8; margin-bottom: 8px; }
+.ポイント行 { font-size: 12px; color: var(--カラー-テキスト薄); padding: 4px 0; border-bottom: 1px solid rgba(99,102,241,0.1); }
+.ポイント行:last-child { border-bottom: none; }
+.ポイント行::before { content: "・"; }
