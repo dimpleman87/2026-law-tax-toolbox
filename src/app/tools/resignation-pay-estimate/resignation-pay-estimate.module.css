@@ -1,0 +1,48 @@
+.ツールUI { display: grid; gap: var(--スペース-xl); }
+@media (min-width: 768px) { .ツールUI { grid-template-columns: 1fr 1fr; } }
+
+.クイック群 { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.クイックボタン { padding: 4px 10px; background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm); color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600; cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文); }
+.クイックボタン:hover { border-color: var(--カラー-ボーダー強); }
+.クイックボタンアクティブ { background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ); color: var(--カラー-プライマリ輝き); }
+
+.税率選択 { display: flex; gap: 4px; margin-top: 4px; background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); padding: 4px; }
+.税率ボタン { flex: 1; padding: 8px; background: transparent; border: none; border-radius: var(--角丸-sm); color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600; cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文); }
+.税率ボタンアクティブ { background: var(--グラデ-プライマリ); color: #fff; box-shadow: var(--影-プライマリ); }
+
+.控除表 { background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); padding: var(--スペース-md); display: flex; flex-direction: column; gap: 6px; }
+.控除表タイトル { font-size: 12px; font-weight: 700; color: var(--カラー-テキスト薄); margin-bottom: 4px; }
+.控除行 { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--カラー-テキスト薄); padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.控除行:last-child { border-bottom: none; }
+
+.注意書き { font-size: 11px; color: var(--カラー-テキスト極薄); padding: var(--スペース-sm); line-height: 1.6; border: 1px solid rgba(251,191,36,0.15); border-radius: var(--角丸-sm); background: rgba(251,191,36,0.04); }
+
+/* ─── 結果 ─── */
+.結果コンテンツ { display: flex; flex-direction: column; gap: var(--スペース-md); }
+
+.非課税カード { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: var(--スペース-lg); background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(6,182,212,0.08) 100%); border: 1px solid rgba(16,185,129,0.4); border-radius: var(--角丸-lg); text-align: center; }
+.非課税バッジ { font-size: 1.1rem; font-weight: 900; color: #10b981; }
+.非課税説明 { font-size: 12px; color: var(--カラー-テキスト薄); line-height: 1.5; }
+.非課税手取り { font-size: 1.2rem; font-weight: 900; color: #06b6d4; }
+
+.メインカード { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: var(--スペース-lg); background: linear-gradient(135deg, rgba(6,182,212,0.10) 0%, rgba(99,102,241,0.08) 100%); border: 1px solid rgba(6,182,212,0.3); border-radius: var(--角丸-lg); text-align: center; }
+.メインラベル { font-size: 11px; font-weight: 600; color: var(--カラー-テキスト薄); text-transform: uppercase; letter-spacing: 0.06em; }
+.メイン値 { font-size: 2.4rem; font-weight: 900; color: #06b6d4; font-variant-numeric: tabular-nums; letter-spacing: -1.5px; }
+.メイン単位 { font-size: 1rem; }
+.実効税率 { font-size: 13px; font-weight: 700; color: #f59e0b; }
+.税負担 { font-size: 12px; color: #f25acc; font-weight: 600; }
+
+.フロー { background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); padding: var(--スペース-md); display: flex; flex-direction: column; }
+.フロー行 { display: flex; justify-content: space-between; font-size: 13px; color: var(--カラー-テキスト薄); padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.フロー合計 { font-size: 15px; font-weight: 900; }
+.フロー仕切り { height: 1px; background: var(--カラー-ボーダー強); margin: 4px 0; }
+.マイナス { color: #f25acc; font-weight: 700; }
+.手取り値 { color: #06b6d4; font-weight: 900; }
+
+.早見表 { padding: var(--スペース-md); background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); }
+.早見表タイトル { font-size: 12px; font-weight: 700; color: var(--カラー-テキスト薄); margin-bottom: 8px; }
+.早見行 { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--カラー-テキスト薄); padding: 5px 6px; border-radius: var(--角丸-sm); cursor: pointer; gap: 4px; transition: background var(--遷移-標準); }
+.早見行:hover { background: rgba(255,255,255,0.04); }
+.早見行強調 { background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.2); color: #06b6d4; font-weight: 700; }
+.早見控除 { color: #10b981; font-weight: 600; min-width: 110px; text-align: center; }
+.早見非課税 { color: var(--カラー-テキスト極薄); font-size: 10px; min-width: 60px; text-align: right; }

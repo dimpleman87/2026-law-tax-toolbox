@@ -27,6 +27,11 @@ const 高優先スラッグ = new Set([
   "word-counter",
   "pension-simulator",
   "take-home-reverse",
+  "dog-age-calculator",
+  "employment-insurance-calc",
+  "corporate-tax-estimate",
+  "depreciation-calc",
+  "resignation-pay-estimate",
 ]);
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -1,0 +1,41 @@
+.ツールUI { display: grid; gap: var(--スペース-xl); }
+@media (min-width: 768px) { .ツールUI { grid-template-columns: 1fr 1fr; } }
+
+.クイック群 { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.クイックボタン { padding: 4px 10px; background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm); color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600; cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文); }
+.クイックボタン:hover { border-color: var(--カラー-ボーダー強); }
+.クイックボタンアクティブ { background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ); color: var(--カラー-プライマリ輝き); }
+
+.サイズ選択 { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+.サイズボタン { padding: 10px 14px; background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); color: var(--カラー-テキスト薄); font-size: 13px; font-weight: 600; cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文); text-align: left; }
+.サイズボタン:hover { border-color: var(--カラー-ボーダー強); }
+.サイズボタンアクティブ { background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ); color: var(--カラー-プライマリ輝き); }
+
+.ステージ表 { background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); padding: var(--スペース-md); display: flex; flex-direction: column; gap: 6px; }
+.ステージ表タイトル { font-size: 12px; font-weight: 700; color: var(--カラー-テキスト薄); margin-bottom: 4px; }
+.ステージ行 { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--カラー-テキスト薄); padding: 3px 0; }
+.ステージバッジ { padding: 2px 8px; border-radius: var(--角丸-sm); font-size: 11px; font-weight: 700; }
+
+.注意書き { font-size: 11px; color: var(--カラー-テキスト極薄); padding: var(--スペース-sm); line-height: 1.6; border: 1px solid rgba(251,191,36,0.15); border-radius: var(--角丸-sm); background: rgba(251,191,36,0.04); }
+
+/* ─── 結果 ─── */
+.結果コンテンツ { display: flex; flex-direction: column; gap: var(--スペース-md); }
+
+.メインカード { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: var(--スペース-lg); background: linear-gradient(135deg, rgba(242,90,204,0.10) 0%, rgba(245,158,11,0.08) 100%); border: 1px solid rgba(242,90,204,0.3); border-radius: var(--角丸-lg); text-align: center; }
+.犬アイコン { font-size: 2rem; }
+.メインラベル { font-size: 12px; font-weight: 600; color: var(--カラー-テキスト薄); }
+.メイン値 { font-size: 3rem; font-weight: 900; color: #f25acc; font-variant-numeric: tabular-nums; letter-spacing: -2px; }
+.メイン単位 { font-size: 1.2rem; }
+
+.ステージカード { padding: var(--スペース-md); background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); }
+.ステージヘッダー { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.ステージアイコン { font-size: 1.4rem; }
+.ステージ名 { font-size: 1rem; font-weight: 800; }
+.ステージ説明 { font-size: 12px; color: var(--カラー-テキスト薄); line-height: 1.6; margin: 0; }
+
+.対応表 { padding: var(--スペース-md); background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); }
+.対応表タイトル { font-size: 12px; font-weight: 700; color: var(--カラー-テキスト薄); margin-bottom: 8px; }
+.対応表ヘッダー { display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: 10px; font-weight: 700; color: var(--カラー-テキスト極薄); text-transform: uppercase; padding: 4px 6px; background: rgba(255,255,255,0.03); border-radius: var(--角丸-sm); margin-bottom: 4px; }
+.対応表行 { display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: 12px; color: var(--カラー-テキスト薄); padding: 5px 6px; border-radius: var(--角丸-sm); cursor: pointer; transition: background var(--遷移-標準); }
+.対応表行:hover { background: rgba(255,255,255,0.04); }
+.対応表行強調 { background: rgba(242,90,204,0.08); border: 1px solid rgba(242,90,204,0.2); }
