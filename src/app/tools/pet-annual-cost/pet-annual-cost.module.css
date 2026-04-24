@@ -1,0 +1,16 @@
+.ツールUI { display: grid; gap: var(--スペース-xl); }
+@media (min-width: 768px) { .ツールUI { grid-template-columns: 1fr 1fr; } }
+
+.ペット選択 { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+.ペットボタン { padding: 8px 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm); color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600; cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文); text-align: left; }
+.ペットボタン:hover { border-color: var(--カラー-ボーダー強); }
+.ペットボタンアクティブ { background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ); color: var(--カラー-プライマリ輝き); }
+
+/* ─── 結果 ─── */
+.結果コンテンツ { display: flex; flex-direction: column; gap: var(--スペース-md); }
+
+.内訳表 { background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); overflow: hidden; }
+.内訳タイトル { font-size: 12px; font-weight: 700; color: var(--カラー-テキスト薄); padding: 8px 10px; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--カラー-ボーダー); }
+.内訳ヘッダー { display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: 10px; font-weight: 700; color: var(--カラー-テキスト極薄); text-transform: uppercase; padding: 6px 10px; background: rgba(255,255,255,0.02); }
+.内訳行 { display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: 12px; color: var(--カラー-テキスト薄); padding: 5px 10px; border-top: 1px solid rgba(255,255,255,0.03); }
+.内訳合計 { display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: 13px; font-weight: 900; color: var(--カラー-テキスト); padding: 7px 10px; border-top: 2px solid var(--カラー-ボーダー強); }
