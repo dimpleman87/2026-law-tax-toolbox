@@ -55,6 +55,15 @@ const 高優先スラッグ = new Set([
   "logistics-fare-pass-through",
   "storage-cost-predict",
   "digital-sign-saving",
+  "ai-power-cost",
+  "data-transfer-calc",
+  "content-certified-mail",
+  "construction-permit-check",
+  "pet-2024-logistics-impact",
+  "pet-medical-high-cost",
+  "pet-senior-medical",
+  "pet-shop-legal-compliance",
+  "subsidies-reverse-lookup-2026",
 ]);
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
