@@ -52,8 +52,13 @@ export const PET_AD_LINKS = {
 // ============================================================
 
 export const BUSINESS_AD_LINKS = {
-  /** マネーフォワード 確定申告（A8.net） */
-  moneyforward: "https://px.a8.net/svt/ejp?a8mat=4B1KXN+B5AB4Y+4JGQ+BX3J6",
+  /** マネーフォワード クラウド確定申告（A8.net） */
+  moneyforward: "https://px.a8.net/svt/ejp?a8mat=4B1KXN+B5AB4Y+4JGQ+BWVTE",
+  moneyforwardPixel: "https://www17.a8.net/0.gif?a8mat=4B1KXN+B5AB4Y+4JGQ+BWVTE",
+
+  /** URUMAP ビジネスマッチング（A8.net） */
+  urumap: "https://px.a8.net/svt/ejp?a8mat=4B1THZ+EYTFVM+3SPO+A94YS2",
+  urumapPixel: "https://www18.a8.net/0.gif?a8mat=4B1THZ+EYTFVM+3SPO+A94YS2",
 
   /** Square 決済（A8.net） */
   square: "https://px.a8.net/svt/ejp?a8mat=3H9Y52+GEM5IA+3O4Y+626XU",
@@ -85,6 +90,10 @@ export const BUSINESS_AD_LINKS = {
 // ============================================================
 
 export const IT_AD_LINKS = {
+  /** ウイルスバスター（A8.net） */
+  virusbuster: "https://px.a8.net/svt/ejp?a8mat=4B1THZ+EWFPGI+3A66+5YRHE",
+  virusbusterPixel: "https://www12.a8.net/0.gif?a8mat=4B1THZ+EWFPGI+3A66+5YRHE",
+
   /** DX推進・デジタル化本（Amazon） */
   dxBook: amz("DX推進 中小企業 実践"),
 

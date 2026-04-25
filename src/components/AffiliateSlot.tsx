@@ -27,6 +27,7 @@ interface AffiliateItem {
   href: string;
   badge: string;   // "Amazon" | "楽天" | "A8" など
   emoji: string;
+  pixel?: string;  // A8.net インプレッション計測ピクセル URL
 }
 
 const リンクマップ: Record<カテゴリ種別, AffiliateItem[]> = {
@@ -36,14 +37,14 @@ const リンクマップ: Record<カテゴリ種別, AffiliateItem[]> = {
     { label: "Furbo ドッグカメラ（外出先から確認）",   href: PET_AD_LINKS.furbo,            badge: "PR",     emoji: "📷" },
   ],
   IT: [
-    { label: "DX推進・業務自動化の実践本",     href: IT_AD_LINKS.dxBook,       badge: "Amazon", emoji: "📚" },
-    { label: "RPA・クラウド移行入門書を探す",   href: IT_AD_LINKS.rpaBook,      badge: "Amazon", emoji: "🤖" },
-    { label: "情報セキュリティ対策本を探す",    href: IT_AD_LINKS.securityBook, badge: "Amazon", emoji: "🛡️" },
+    { label: "ウイルスバスター セキュリティソフト",   href: IT_AD_LINKS.virusbuster,   badge: "PR", emoji: "🛡️", pixel: IT_AD_LINKS.virusbusterPixel },
+    { label: "DX推進・業務自動化の実践本",            href: IT_AD_LINKS.dxBook,        badge: "Amazon", emoji: "📚" },
+    { label: "RPA・クラウド移行入門書を探す",          href: IT_AD_LINKS.rpaBook,       badge: "Amazon", emoji: "🤖" },
   ],
   business: [
-    { label: "確定申告・税務の実践書を探す",     href: BUSINESS_AD_LINKS.taxBook,      badge: "Amazon", emoji: "📚" },
-    { label: "補助金・助成金申請ガイド本",       href: BUSINESS_AD_LINKS.subsidyBook,  badge: "Amazon", emoji: "💰" },
-    { label: "マネーフォワード クラウド確定申告", href: BUSINESS_AD_LINKS.moneyforward, badge: "PR",     emoji: "💻" },
+    { label: "マネーフォワード クラウド確定申告（無料）", href: BUSINESS_AD_LINKS.moneyforward, badge: "PR", emoji: "💻", pixel: BUSINESS_AD_LINKS.moneyforwardPixel },
+    { label: "URUMAP ビジネスマッチングで案件獲得",     href: BUSINESS_AD_LINKS.urumap,      badge: "PR", emoji: "🤝", pixel: BUSINESS_AD_LINKS.urumapPixel },
+    { label: "補助金・助成金申請ガイド本",              href: BUSINESS_AD_LINKS.subsidyBook, badge: "Amazon", emoji: "💰" },
   ],
   health: [
     { label: "健康管理・セルフケア本を探す",   href: DIET_AD_LINKS.healthBook, badge: "Amazon", emoji: "📚" },
@@ -51,9 +52,9 @@ const リンクマップ: Record<カテゴリ種別, AffiliateItem[]> = {
     { label: "CLOUD GYM 遺伝子検査キット",     href: DIET_AD_LINKS.cloudgym,   badge: "PR",     emoji: "🧬" },
   ],
   general: [
-    { label: "ビジネス書おすすめ2026",        href: GENERAL_AD_LINKS.businessBooks, badge: "Amazon", emoji: "📚" },
-    { label: "Amazonで関連商品を探す",         href: GENERAL_AD_LINKS.amazon,        badge: "Amazon", emoji: "🛒" },
-    { label: "マネーフォワード クラウド確定申告", href: BUSINESS_AD_LINKS.moneyforward, badge: "PR",   emoji: "💻" },
+    { label: "マネーフォワード クラウド確定申告（無料）", href: BUSINESS_AD_LINKS.moneyforward,  badge: "PR",     emoji: "💻", pixel: BUSINESS_AD_LINKS.moneyforwardPixel },
+    { label: "ビジネス書おすすめ2026",                  href: GENERAL_AD_LINKS.businessBooks,  badge: "Amazon", emoji: "📚" },
+    { label: "URUMAP ビジネスマッチングで案件獲得",      href: BUSINESS_AD_LINKS.urumap,        badge: "PR",     emoji: "🤝", pixel: BUSINESS_AD_LINKS.urumapPixel },
   ],
 };
 
@@ -76,21 +77,33 @@ export default function AffiliateSlot({ カテゴリ = "general" }: AffiliateSlo
       <p style={labelStyle}>関連商品・サービス（広告）</p>
       <div style={gridStyle}>
         {items.map((item) => (
-          <a
-            key={item.href}
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-            style={cardStyle}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--カラー-ボーダー強)"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--カラー-ボーダー)"; }}
-          >
-            <span style={emojiStyle}>{item.emoji}</span>
-            <span style={cardTextStyle}>{item.label}</span>
-            <span style={{ ...badgeStyle, background: バッジ色[item.badge] ?? "#6366f1" }}>
-              {item.badge}
-            </span>
-          </a>
+          <div key={item.href}>
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              style={cardStyle}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--カラー-ボーダー強)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--カラー-ボーダー)"; }}
+            >
+              <span style={emojiStyle}>{item.emoji}</span>
+              <span style={cardTextStyle}>{item.label}</span>
+              <span style={{ ...badgeStyle, background: バッジ色[item.badge] ?? "#6366f1" }}>
+                {item.badge}
+              </span>
+            </a>
+            {/* A8.net インプレッション計測ピクセル */}
+            {item.pixel && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                width={1}
+                height={1}
+                src={item.pixel}
+                alt=""
+                style={{ display: "block", width: 1, height: 1, border: "none" }}
+              />
+            )}
+          </div>
         ))}
       </div>
     </div>
