@@ -4,6 +4,7 @@ import { useState, useMemo, useCallback } from "react";
 import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
+import AffiliateSlot from "@/components/AffiliateSlot";
 import styles from "./word-counter.module.css";
 
 const ツール定義 = {
@@ -223,7 +224,12 @@ export default function 文字数カウンターページ() {
             </div>
           </div>
 
-          {テキスト && <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />}
+          {テキスト && <>
+              <AffiliateSlot カテゴリ="general" />
+              <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />
+              </>
+              }
+
         </div>
       </main>
 

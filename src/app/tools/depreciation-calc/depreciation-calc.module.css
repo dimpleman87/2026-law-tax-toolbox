@@ -1,0 +1,28 @@
+.ツールUI { display: grid; gap: var(--スペース-xl); }
+@media (min-width: 768px) { .ツールUI { grid-template-columns: 1fr 1fr; } }
+
+.クイック群 { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.クイックボタン { padding: 4px 10px; background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm); color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600; cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文); }
+.クイックボタン:hover { border-color: var(--カラー-ボーダー強); }
+.クイックボタンアクティブ { background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ); color: var(--カラー-プライマリ輝き); }
+.税率選択 { display: flex; gap: 4px; margin-top: 4px; background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); padding: 4px; }
+.税率ボタン { flex: 1; padding: 8px; background: transparent; border: none; border-radius: var(--角丸-sm); color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600; cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文); }
+.税率ボタンアクティブ { background: var(--グラデ-プライマリ); color: #fff; box-shadow: var(--影-プライマリ); }
+.注意書き { font-size: 11px; color: var(--カラー-テキスト極薄); padding: var(--スペース-sm); line-height: 1.6; border: 1px solid rgba(251,191,36,0.15); border-radius: var(--角丸-sm); background: rgba(251,191,36,0.04); }
+
+.結果コンテンツ { display: flex; flex-direction: column; gap: var(--スペース-md); }
+
+.グラフラッパー { padding: var(--スペース-md); background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); }
+.グラフタイトル { display: flex; justify-content: space-between; font-size: 12px; color: var(--カラー-テキスト薄); font-weight: 700; margin-bottom: 10px; }
+.グラフ凡例 { display: flex; gap: 10px; font-size: 11px; }
+.グラフ本体 { display: flex; align-items: flex-end; gap: 3px; height: 120px; overflow-x: auto; padding-bottom: 18px; }
+.グラフ列 { display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 20px; }
+.グラフバー { width: 100%; height: 100px; display: flex; align-items: flex-end; gap: 2px; }
+.グラフ定額 { flex: 1; background: rgba(6,182,212,0.6); border-radius: 2px 2px 0 0; }
+.グラフ定率 { flex: 1; background: rgba(242,90,204,0.6); border-radius: 2px 2px 0 0; }
+.グラフラベル { font-size: 9px; color: var(--カラー-テキスト極薄); margin-top: 3px; }
+
+.テーブル { background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); overflow: hidden; }
+.テーブルヘッダ { display: grid; grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); font-size: 10px; font-weight: 700; color: var(--カラー-テキスト極薄); text-transform: uppercase; padding: 8px 10px; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--カラー-ボーダー); }
+.テーブル行 { display: grid; grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); font-size: 12px; color: var(--カラー-テキスト薄); padding: 6px 10px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+.テーブル行:last-child { border-bottom: none; }

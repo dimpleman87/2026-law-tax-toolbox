@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
+import AffiliateSlot from "@/components/AffiliateSlot";
 import styles from "./mortgage-calculator.module.css";
 
 const ツール定義 = {
@@ -285,7 +286,10 @@ export default function 住宅ローン計算機ページ() {
           </div>
 
           {結果 && (
+            <>
+            <AffiliateSlot カテゴリ="business" />
             <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />
+            </>
           )}
         </div>
       </main>

@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
+import AffiliateSlot from "@/components/AffiliateSlot";
 import styles from "./bmi-calculator.module.css";
 
 const ツール定義 = {
@@ -249,7 +250,11 @@ export default function BMI計算機ページ() {
                 <p className="プレースホルダーメッセージ">身長と体重を入力してください</p>
               )}
 
-              {結果 && <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />}
+              {結果 && <>
+              <AffiliateSlot カテゴリ="health" />
+              <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />
+              </>
+              }
             </div>
           </div>
 

@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
+import AffiliateSlot from "@/components/AffiliateSlot";
 import styles from "./hourly-wage-calc.module.css";
 
 const ツール定義 = {
@@ -251,7 +252,12 @@ export default function 時給年収換算計算機ページ() {
             </div>
           </div>
 
-          {結果 && <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />}
+          {結果 && <>
+              <AffiliateSlot カテゴリ="business" />
+              <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />
+              </>
+              }
+
         </div>
       </main>
     </>

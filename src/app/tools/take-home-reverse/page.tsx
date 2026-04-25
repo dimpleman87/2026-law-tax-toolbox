@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
+import AffiliateSlot from "@/components/AffiliateSlot";
 import styles from "./take-home-reverse.module.css";
 
 const ツール定義 = {
@@ -310,6 +311,7 @@ export default function 手取り逆算ページ() {
                 </div>
               </div>
 
+              <AffiliateSlot カテゴリ="business" />
               <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />
             </div>
           </div>

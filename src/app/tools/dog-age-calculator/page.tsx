@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
+import AffiliateSlot from "@/components/AffiliateSlot";
 import styles from "./dog-age-calculator.module.css";
 
 const ツール定義 = {
@@ -238,6 +239,7 @@ export default function 犬の年齢換算ページ() {
                 </div>
               </div>
 
+              <AffiliateSlot カテゴリ="pet" />
               <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />
             </div>
           </div>

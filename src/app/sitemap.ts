@@ -38,6 +38,23 @@ const 高優先スラッグ = new Set([
   "consumption-tax-calc",
   "pet-annual-cost",
   "pet-insurance-check",
+  "pet-medical-cost",
+  "pet-funeral-cost",
+  "rpa-time-saving",
+  "saas-roi-calc",
+  "telework-cost-benefit",
+  "pet-lifetime-care-cost",
+  "subsidy-2026-check",
+  "system-maintenance-fee",
+  "cloud-migration-cost",
+  "paperless-saving-calc",
+  "security-investment-roi",
+  "pet-microchip-registration",
+  "ai-infra-energy-cost",
+  "gx-carbon-levy-calc",
+  "logistics-fare-pass-through",
+  "storage-cost-predict",
+  "digital-sign-saving",
 ]);
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

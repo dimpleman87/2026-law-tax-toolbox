@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
+import AffiliateSlot from "@/components/AffiliateSlot";
 import styles from "./age-calculator.module.css";
 
 const ツール定義 = {
@@ -281,7 +282,11 @@ export default function 年齢計算機ページ() {
                 <p className="プレースホルダーメッセージ">生年月日を入力してください</p>
               )}
 
-              {結果 && <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />}
+              {結果 && <>
+              <AffiliateSlot カテゴリ="general" />
+              <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />
+              </>
+              }
             </div>
           </div>
 

@@ -1,0 +1,20 @@
+.ツールUI { display: grid; gap: var(--スペース-xl); }
+@media (min-width: 768px) { .ツールUI { grid-template-columns: 1fr 1fr; } }
+
+.クイック群 { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.クイックボタン { padding: 4px 10px; background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm); color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600; cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文); }
+.クイックボタン:hover { border-color: var(--カラー-ボーダー強); }
+.クイックボタンアクティブ { background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ); color: var(--カラー-プライマリ輝き); }
+
+.結果コンテンツ { display: flex; flex-direction: column; gap: var(--スペース-md); }
+
+.メインカード { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: var(--スペース-lg); background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-lg); text-align: center; }
+.メインラベル { font-size: 11px; font-weight: 600; color: var(--カラー-テキスト薄); text-transform: uppercase; letter-spacing: 0.06em; }
+.メイン値 { font-size: 2rem; font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: -1px; }
+.メイン単位 { font-size: 0.85rem; }
+.メインサブ { font-size: 12px; color: var(--カラー-テキスト薄); font-weight: 600; }
+
+.内訳 { background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); padding: var(--スペース-md); }
+.内訳タイトル { font-size: 12px; font-weight: 700; color: var(--カラー-テキスト薄); margin-bottom: 8px; }
+.内訳行 { display: flex; justify-content: space-between; font-size: 12px; color: var(--カラー-テキスト薄); padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.内訳合計 { border-bottom: none; font-size: 14px; font-weight: 900; border-top: 2px solid var(--カラー-ボーダー強); padding-top: 8px; }

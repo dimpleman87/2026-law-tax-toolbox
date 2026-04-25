@@ -1,0 +1,32 @@
+.ツールUI { display: grid; gap: var(--スペース-xl); }
+@media (min-width: 768px) { .ツールUI { grid-template-columns: 1fr 1fr; } }
+
+.治療選択 { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: 4px; }
+.治療ボタン { padding: 8px 10px; background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm); color: var(--カラー-テキスト薄); font-size: 11px; font-weight: 600; cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文); text-align: left; display: flex; flex-direction: column; gap: 2px; }
+.治療ボタン:hover { border-color: var(--カラー-ボーダー強); }
+.治療ボタンアクティブ { background: var(--カラー-プライマリ薄); border-color: var(--カラー-プライマリ); color: var(--カラー-プライマリ輝き); }
+.治療目安 { font-size: 10px; color: var(--カラー-テキスト極薄); }
+.治療ボタンアクティブ .治療目安 { color: var(--カラー-プライマリ輝き); opacity: 0.7; }
+
+.横選択 { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 4px; }
+.横ボタン { padding: 6px 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-sm); color: var(--カラー-テキスト薄); font-size: 12px; font-weight: 600; cursor: pointer; transition: all var(--遷移-標準); font-family: var(--フォント-本文); }
+.横ボタン:hover { border-color: var(--カラー-ボーダー強); }
+.横ボタンアクティブ { background: var(--グラデ-プライマリ); color: #fff; box-shadow: var(--影-プライマリ); border-color: transparent; }
+
+.費用参考 { background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); padding: var(--スペース-md); display: flex; flex-direction: column; gap: 6px; }
+.費用参考タイトル { font-size: 12px; font-weight: 700; color: var(--カラー-テキスト薄); margin-bottom: 4px; }
+.費用参考行 { display: flex; justify-content: space-between; font-size: 13px; color: var(--カラー-テキスト薄); padding: 3px 0; }
+
+.結果コンテンツ { display: flex; flex-direction: column; gap: var(--スペース-md); }
+
+.メインカード { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: var(--スペース-lg); background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-lg); text-align: center; }
+.メインラベル { font-size: 11px; font-weight: 600; color: var(--カラー-テキスト薄); text-transform: uppercase; letter-spacing: 0.06em; }
+.メイン値 { font-size: 2.4rem; font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: -1.5px; }
+.メイン単位 { font-size: 1rem; }
+.保険節約 { font-size: 12px; color: #10b981; font-weight: 700; }
+
+.比較表 { padding: var(--スペース-md); background: rgba(255,255,255,0.02); border: 1px solid var(--カラー-ボーダー); border-radius: var(--角丸-md); }
+.比較表タイトル { font-size: 12px; font-weight: 700; color: var(--カラー-テキスト薄); margin-bottom: 8px; }
+.比較行 { display: grid; grid-template-columns: 70px 1fr 1fr; align-items: center; font-size: 12px; color: var(--カラー-テキスト薄); padding: 5px 6px; border-radius: var(--角丸-sm); cursor: pointer; transition: background var(--遷移-標準); }
+.比較行:hover { background: rgba(255,255,255,0.04); }
+.比較行強調 { background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.2); }
