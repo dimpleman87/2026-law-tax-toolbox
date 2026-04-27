@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./furusato-nozei.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "furusato-nozei",
@@ -95,6 +100,7 @@ export default function ふるさと納税計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="furusato-nozei" タイトル="ふるさと納税 控除上限額計算機" 説明="年収・家族構成から控除上限額を無料試算" カテゴリ="金融・投資" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -103,6 +109,7 @@ export default function ふるさと納税計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🏠 ふるさと納税 控除上限額計算機（2026年版）</h1>
+          <FavoriteButton slug="furusato-nozei" title="ふるさと納税 控除上限額計算機" emoji="🏠" />
           <p className="ツールページ説明">
             年収・家族構成を入力するだけで自己負担2,000円になる限度額を瞬時に試算。2024〜2026年度対応。
           </p>
@@ -221,6 +228,8 @@ export default function ふるさと納税計算機ページ() {
               <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />
           </>
           }
+
+          <ToolGuide slug="furusato-nozei" />
         </div>
       </main>
     </>

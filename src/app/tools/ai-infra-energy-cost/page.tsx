@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./ai-infra-energy-cost.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "ai-infra-energy-cost",
@@ -72,6 +77,7 @@ export default function AI基盤電力コスト計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="ai-infra-energy-cost" タイトル="AI基盤電力・インフラコスト計算機" 説明="GPU・サーバー・冷却設備の電力コストと年間費用を試算" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -82,6 +88,7 @@ export default function AI基盤電力コスト計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">⚡ AI基盤電力・インフラコスト計算機</h1>
+          <FavoriteButton slug="ai-infra-energy-cost" title="AI基盤電力・インフラコスト計算機" emoji="⚡" />
           <p className="ツールページ説明">
             GPUサーバーの消費電力・PUE・稼働率・電力単価から月間・年間の電力コストとCO₂排出量を算出。
             オンプレAI基盤の運用コスト把握やクラウドとの比較に。
@@ -187,6 +194,8 @@ export default function AI基盤電力コスト計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="ai-infra-energy-cost" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

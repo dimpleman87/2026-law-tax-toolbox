@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./year-end-tax-adj.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "year-end-tax-adj",
@@ -185,6 +190,7 @@ export default function 年末調整計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="year-end-tax-adj" タイトル="年末調整 還付金・追徴額 計算機" 説明="配偶者・扶養・生命保険控除を反映して試算" カテゴリ="ビジネス・経理" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -193,6 +199,7 @@ export default function 年末調整計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💴 年末調整 還付金・追徴額 計算機</h1>
+          <FavoriteButton slug="year-end-tax-adj" title="年末調整 還付金・追徴額 計算機" emoji="💴" />
           <p className="ツールページ説明">
             年収・各種控除を入力して還付金または追徴税額を概算。配偶者・扶養・生命保険・住宅ローン控除に対応。
           </p>
@@ -382,6 +389,8 @@ export default function 年末調整計算機ページ() {
               </>
               }
 
+
+          <ToolGuide slug="year-end-tax-adj" />
         </div>
       </main>
     </>

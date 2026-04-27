@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./depreciation-calc.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "depreciation-calc",
@@ -111,6 +116,7 @@ export default function 減価償却計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="depreciation-calc" タイトル="減価償却費計算機" 説明="定額法・定率法の年次償却スケジュールを即算出" カテゴリ="金融・投資" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -121,6 +127,7 @@ export default function 減価償却計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">📊 減価償却費計算機（定額法・定率法）</h1>
+          <FavoriteButton slug="depreciation-calc" title="減価償却費計算機" emoji="📊" />
           <p className="ツールページ説明">
             取得価額・耐用年数を入力するだけで定額法・定率法の年次償却スケジュールを全期間算出。
             決算前の経費シミュレーション・節税計画・設備投資判断に。
@@ -276,6 +283,8 @@ export default function 減価償却計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="depreciation-calc" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

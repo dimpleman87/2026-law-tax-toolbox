@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./resignation-pay-estimate.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "resignation-pay-estimate",
@@ -111,6 +116,7 @@ export default function 退職金概算シミュレーターページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="resignation-pay-estimate" タイトル="退職金概算シミュレーター" 説明="退職金控除・税引後手取りを即算出" カテゴリ="ビジネス・経理" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -121,6 +127,7 @@ export default function 退職金概算シミュレーターページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💼 退職金概算シミュレーター</h1>
+          <FavoriteButton slug="resignation-pay-estimate" title="退職金概算シミュレーター" emoji="💼" />
           <p className="ツールページ説明">
             退職金額・勤続年数を入力するだけで退職所得控除・課税退職所得・所得税・住民税・
             手取り額を即試算。退職前の資金計画・税負担シミュレーションに。
@@ -295,6 +302,8 @@ export default function 退職金概算シミュレーターページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="resignation-pay-estimate" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

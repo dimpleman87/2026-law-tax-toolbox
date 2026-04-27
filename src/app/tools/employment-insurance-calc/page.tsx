@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./employment-insurance-calc.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "employment-insurance-calc",
@@ -64,6 +69,7 @@ export default function 雇用保険料計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="employment-insurance-calc" タイトル="雇用保険料計算機" 説明="給与から労働者・事業主の雇用保険料を即算出" カテゴリ="ビジネス・経理" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -74,6 +80,7 @@ export default function 雇用保険料計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💼 雇用保険料計算機</h1>
+          <FavoriteButton slug="employment-insurance-calc" title="雇用保険料計算機" emoji="💼" />
           <p className="ツールページ説明">
             毎月の賃金総額を入力するだけで、労働者負担分（給与天引き額）と事業主負担分を即算出。
             令和6年度の最新料率対応。業種別（一般・農林水産・建設）切替可能。
@@ -225,6 +232,8 @@ export default function 雇用保険料計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="employment-insurance-calc" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

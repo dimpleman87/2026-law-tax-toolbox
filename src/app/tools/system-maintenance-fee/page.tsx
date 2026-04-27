@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./system-maintenance-fee.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "system-maintenance-fee",
@@ -69,6 +74,7 @@ export default function システム保守費用計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="system-maintenance-fee" タイトル="システム保守費用計算機" 説明="開発費・保守率・SLA等級から年間保守費を試算" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -79,6 +85,7 @@ export default function システム保守費用計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🔧 システム保守費用計算機</h1>
+          <FavoriteButton slug="system-maintenance-fee" title="システム保守費用計算機" emoji="🔧" />
           <p className="ツールページ説明">
             開発費・SLA等級・保守種別を選ぶだけで年間保守費用・月額・総所有コスト（TCO）を試算。
             ベンダー見積もりの妥当性チェックや予算計画に。
@@ -193,6 +200,8 @@ export default function システム保守費用計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="system-maintenance-fee" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

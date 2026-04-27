@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./salary-calculator.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "salary-calculator",
@@ -134,6 +139,7 @@ export default function 給与手取り計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="salary-calculator" タイトル="給与手取り計算機" 説明="月収から社会保険料・税金・手取りを計算" カテゴリ="ビジネス・経理" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -142,6 +148,7 @@ export default function 給与手取り計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💴 給与手取り計算機（2026年版）</h1>
+          <FavoriteButton slug="salary-calculator" title="給与手取り計算機" emoji="💴" />
           <p className="ツールページ説明">
             月収（額面）から健康保険・厚生年金・雇用保険・所得税・住民税を自動計算。実際の手取り額を即確認。
           </p>
@@ -285,6 +292,8 @@ export default function 給与手取り計算機ページ() {
               </>
               }
 
+
+          <ToolGuide slug="salary-calculator" />
         </div>
       </main>
     </>

@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./national-health-insurance.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "national-health-insurance",
@@ -99,6 +104,7 @@ export default function 国民健康保険料計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="national-health-insurance" タイトル="国民健康保険料 計算機" 説明="フリーランス・退職後の保険料を年収から試算" カテゴリ="生活・計算" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -107,6 +113,7 @@ export default function 国民健康保険料計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💊 国民健康保険料 計算機（2026年版）</h1>
+          <FavoriteButton slug="national-health-insurance" title="国民健康保険料 計算機" emoji="💊" />
           <p className="ツールページ説明">
             年収・居住地・家族構成から国民健康保険料を試算。フリーランス独立・退職後の保険料シミュレーションに。
           </p>
@@ -231,6 +238,8 @@ export default function 国民健康保険料計算機ページ() {
               </>
               }
 
+
+          <ToolGuide slug="national-health-insurance" />
         </div>
       </main>
     </>

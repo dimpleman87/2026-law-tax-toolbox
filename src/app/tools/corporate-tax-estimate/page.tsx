@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./corporate-tax-estimate.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "corporate-tax-estimate",
@@ -99,6 +104,7 @@ export default function 法人税シミュレーターページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="corporate-tax-estimate" タイトル="法人税概算シミュレーター" 説明="中小法人の利益から実効税率・法人税総額を試算" カテゴリ="金融・投資" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -109,6 +115,7 @@ export default function 法人税シミュレーターページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💼 法人税概算シミュレーター</h1>
+          <FavoriteButton slug="corporate-tax-estimate" title="法人税概算シミュレーター" emoji="💼" />
           <p className="ツールページ説明">
             見込利益・資本金・所在地を入力するだけで、法人税・法人住民税・法人事業税・特別法人事業税の
             合計額と実効税率を試算。決算対策・節税計画の第一歩に。
@@ -237,6 +244,8 @@ export default function 法人税シミュレーターページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="corporate-tax-estimate" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

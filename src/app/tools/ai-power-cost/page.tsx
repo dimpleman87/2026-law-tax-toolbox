@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./ai-power-cost.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "ai-power-cost",
@@ -68,6 +73,7 @@ export default function AI電力コストページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="ai-power-cost" タイトル="AI・データセンター電力コストシミュレーター" 説明="GPU運用・クラウドAIの電力費を試算" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -78,6 +84,7 @@ export default function AI電力コストページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">⚡ AI・データセンター電力コストシミュレーター</h1>
+          <FavoriteButton slug="ai-power-cost" title="AI・データセンター電力コストシミュレーター" emoji="⚡" />
           <p className="ツールページ説明">
             GPU種別・台数・稼働時間・電力単価を入力するだけで月間電力コストと年間AIインフラ費用を試算。
             クラウドAPI料金も合算してROI計算の根拠に。
@@ -176,6 +183,8 @@ export default function AI電力コストページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="ai-power-cost" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

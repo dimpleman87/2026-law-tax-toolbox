@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./stamp-duty-calc.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "stamp-duty-calc",
@@ -136,6 +141,7 @@ export default function 印紙税計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="stamp-duty-calc" タイトル="印紙税計算機" 説明="契約書・領収書の収入印紙代を即判定" カテゴリ="士業・法務" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -146,6 +152,7 @@ export default function 印紙税計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">📄 印紙税計算機（2024年軽減措置対応）</h1>
+          <FavoriteButton slug="stamp-duty-calc" title="印紙税計算機" emoji="📄" />
           <p className="ツールページ説明">
             文書の種類と契約金額を選ぶだけで収入印紙の金額を即判定。
             不動産売買・請負契約・領収書・金銭消費貸借・約束手形に対応。軽減税率も反映。
@@ -289,6 +296,8 @@ export default function 印紙税計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="stamp-duty-calc" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

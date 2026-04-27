@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./password-generator.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "password-generator",
@@ -87,6 +92,7 @@ export default function パスワード生成ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="password-generator" タイトル="パスワード生成ツール" 説明="安全な強力パスワードをワンクリックで作成" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -95,6 +101,7 @@ export default function パスワード生成ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">パスワード生成ツール</h1>
+          <FavoriteButton slug="password-generator" title="パスワード生成ツール" emoji="パスワード生成ツール" />
           <p className="ツールページ説明">
             文字種と文字数を指定して、暗号学的に安全なランダムパスワードを生成します。ブラウザ内で完結するため外部送信ゼロ。
           </p>
@@ -226,6 +233,8 @@ export default function パスワード生成ページ() {
               結果テキスト="強力なパスワードを生成しました"
             />
           )}
+
+          <ToolGuide slug="password-generator" />
         </div>
       </main>
     </>

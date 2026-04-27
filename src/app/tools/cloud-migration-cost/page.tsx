@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./cloud-migration-cost.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "cloud-migration-cost",
@@ -66,6 +71,7 @@ export default function クラウド移行コスト計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="cloud-migration-cost" タイトル="クラウド移行コスト計算機" 説明="オンプレミスからクラウドへの移行費用とROIを試算" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -76,6 +82,7 @@ export default function クラウド移行コスト計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">☁️ クラウド移行コスト計算機</h1>
+          <FavoriteButton slug="cloud-migration-cost" title="クラウド移行コスト計算機" emoji="☁️" />
           <p className="ツールページ説明">
             オンプレミスからクラウドへの移行に必要なコスト（人件費・データ移行費・並行稼働費）を試算。
             年間コスト削減額・ROI・回収期間まで一括算出。
@@ -168,6 +175,8 @@ export default function クラウド移行コスト計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="cloud-migration-cost" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

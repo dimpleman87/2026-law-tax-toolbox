@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./pet-insurance-check.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "pet-insurance-check",
@@ -121,6 +126,7 @@ export default function ペット保険シミュレーターページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="pet-insurance-check" タイトル="ペット保険 損益分岐シミュレーター" 説明="加入すべきか費用対効果を数字で判断" カテゴリ="生活・計算" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -131,6 +137,7 @@ export default function ペット保険シミュレーターページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🐶 ペット保険 損益分岐シミュレーター</h1>
+          <FavoriteButton slug="pet-insurance-check" title="ペット保険 損益分岐シミュレーター" emoji="🐶" />
           <p className="ツールページ説明">
             保険料・補償率・加入期間・リスクを入力して生涯保険料と期待補償額を比較。
             損益分岐点・加入推奨度スコアで「入るべきか」を数字で判断。
@@ -260,6 +267,8 @@ export default function ペット保険シミュレーターページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="pet-insurance-check" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./pet-lifetime-care-cost.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "pet-lifetime-care-cost",
@@ -77,6 +82,7 @@ export default function ペット生涯飼育コスト計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="pet-lifetime-care-cost" タイトル="ペット生涯飼育コスト計算機" 説明="犬・猫の一生にかかる総費用を年齢別に試算" カテゴリ="ペット" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -87,6 +93,7 @@ export default function ペット生涯飼育コスト計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🐾 ペット生涯飼育コスト計算機</h1>
+          <FavoriteButton slug="pet-lifetime-care-cost" title="ペット生涯飼育コスト計算機" emoji="🐾" />
           <p className="ツールページ説明">
             犬・猫の種別を選び月間費用を入力するだけで、生涯にかかる総費用を試算。
             フード・医療・保険・トリミング・消耗品まで網羅した詳細シミュレーション。
@@ -180,6 +187,8 @@ export default function ペット生涯飼育コスト計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="pet-lifetime-care-cost" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

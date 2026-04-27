@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./freelance-tax.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "freelance-tax",
@@ -107,6 +112,7 @@ export default function フリーランス手取りページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="freelance-tax" タイトル="フリーランス手取りシミュレーター" 説明="年間売上・経費を入力して所得税・住民税・国保・年金を一括試算" カテゴリ="金融・投資" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -117,6 +123,7 @@ export default function フリーランス手取りページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💸 フリーランス手取りシミュレーター</h1>
+          <FavoriteButton slug="freelance-tax" title="フリーランス手取りシミュレーター" emoji="💸" />
           <p className="ツールページ説明">
             年間売上・経費を入力するだけで、所得税・住民税・国民健康保険・国民年金を一括計算。
             青色申告特別控除・インボイス消費税も対応。独立前の資金計画に。
@@ -304,6 +311,8 @@ export default function フリーランス手取りページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="freelance-tax" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

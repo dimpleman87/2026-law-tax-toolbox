@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./construction-permit-check.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "construction-permit-check",
@@ -83,6 +88,7 @@ export default function 建設業許可チェックページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="construction-permit-check" タイトル="建設業許可要件チェック" 説明="許可取得・更新の主要5要件を簡易判定" カテゴリ="士業・法務" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -93,6 +99,7 @@ export default function 建設業許可チェックページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🏗️ 建設業許可要件チェック</h1>
+          <FavoriteButton slug="construction-permit-check" title="建設業許可要件チェック" emoji="🏗️" />
           <p className="ツールページ説明">
             経営経験年数・専任技術者・財産的基礎など主要5要件を入力するだけで
             建設業許可（一般建設業）の取得可能性を簡易診断。申請前の確認に。
@@ -213,6 +220,8 @@ export default function 建設業許可チェックページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="construction-permit-check" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./subsidy-2026-check.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "subsidy-2026-check",
@@ -95,6 +100,7 @@ export default function 補助金適性チェッカーページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="subsidy-2026-check" タイトル="2026年度補助金適性チェッカー" 説明="中小企業向け主要補助金の受給要件を簡易チェック" カテゴリ="ビジネス・経営" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -105,6 +111,7 @@ export default function 補助金適性チェッカーページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💰 2026年度補助金適性チェッカー</h1>
+          <FavoriteButton slug="subsidy-2026-check" title="2026年度補助金適性チェッカー" emoji="💰" />
           <p className="ツールページ説明">
             主要5補助金の要件・補助率・上限額を一覧比較。投資額を入力すると
             補助金見込額と自己負担額をリアルタイム算出。申請前の目安に。
@@ -201,6 +208,8 @@ export default function 補助金適性チェッカーページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="subsidy-2026-check" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

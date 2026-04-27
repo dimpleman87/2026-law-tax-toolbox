@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./retirement-pay-calc.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "retirement-pay-calc",
@@ -88,6 +93,7 @@ export default function 退職金手取り計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="retirement-pay-calc" タイトル="退職金 手取り計算機" 説明="退職所得控除・税金を差し引いた手取り額を試算" カテゴリ="ビジネス・経理" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -96,6 +102,7 @@ export default function 退職金手取り計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💼 退職金 手取り計算機（2026年版）</h1>
+          <FavoriteButton slug="retirement-pay-calc" title="退職金 手取り計算機" emoji="💼" />
           <p className="ツールページ説明">
             退職金額・勤続年数を入力するだけで退職所得控除・所得税・住民税・手取りを即計算。
           </p>
@@ -218,6 +225,8 @@ export default function 退職金手取り計算機ページ() {
               </>
               }
 
+
+          <ToolGuide slug="retirement-pay-calc" />
         </div>
       </main>
     </>

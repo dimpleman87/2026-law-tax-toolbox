@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./dog-age-calculator.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "dog-age-calculator",
@@ -92,6 +97,7 @@ export default function 犬の年齢換算ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="dog-age-calculator" タイトル="犬の年齢換算ツール" 説明="愛犬の年齢を人間年齢に換算・ライフステージ判定" カテゴリ="ペット" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -102,6 +108,7 @@ export default function 犬の年齢換算ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🐶 犬の年齢換算ツール</h1>
+          <FavoriteButton slug="dog-age-calculator" title="犬の年齢換算ツール" emoji="🐶" />
           <p className="ツールページ説明">
             愛犬の年齢を犬種サイズ（小型・中型・大型）別に人間年齢へ換算。
             ライフステージ判定・平均余命の目安・年齢対応表も表示します。
@@ -244,6 +251,8 @@ export default function 犬の年齢換算ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="dog-age-calculator" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

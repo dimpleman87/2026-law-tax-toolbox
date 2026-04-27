@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./inheritance-tax.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "inheritance-tax",
@@ -120,6 +125,7 @@ export default function 相続税シミュレーターページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="inheritance-tax" タイトル="相続税シミュレーター" 説明="相続財産・法定相続人数から相続税の目安を試算" カテゴリ="士業・法務" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -130,6 +136,7 @@ export default function 相続税シミュレーターページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">📋 相続税シミュレーター（2024年対応）</h1>
+          <FavoriteButton slug="inheritance-tax" title="相続税シミュレーター" emoji="📋" />
           <p className="ツールページ説明">
             相続財産と法定相続人の数を入力するだけで、基礎控除・課税遺産総額・相続税の概算を試算。
             配偶者税額軽減も考慮。相続税の準備・対策の第一歩に。
@@ -307,6 +314,8 @@ export default function 相続税シミュレーターページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="inheritance-tax" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

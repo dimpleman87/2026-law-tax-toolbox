@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./data-transfer-calc.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "data-transfer-calc",
@@ -51,6 +56,7 @@ export default function データ転送計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="data-transfer-calc" タイトル="データ転送量・帯域計算機" 説明="Webサイトや動画配信の転送コストと必要帯域を試算" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -61,6 +67,7 @@ export default function データ転送計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">📡 データ転送量・帯域計算機</h1>
+          <FavoriteButton slug="data-transfer-calc" title="データ転送量・帯域計算機" emoji="📡" />
           <p className="ツールページ説明">
             ページサイズ・月間PV・クラウド転送単価を入力するだけで月間転送量・コスト・
             ピーク帯域を即算出。AWSやCloudflareの料金設計に。
@@ -148,6 +155,8 @@ export default function データ転送計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="data-transfer-calc" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./compound-interest.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "compound-interest",
@@ -86,6 +91,7 @@ export default function 複利計算シミュレーターページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="compound-interest" タイトル="複利計算シミュレーター" 説明="積立投資・新NISAの複利収益を長期グラフで試算" カテゴリ="金融・投資" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -96,6 +102,7 @@ export default function 複利計算シミュレーターページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">📈 複利計算シミュレーター｜新NISA・積立投資</h1>
+          <FavoriteButton slug="compound-interest" title="複利計算シミュレーター" emoji="📈" />
           <p className="ツールページ説明">
             初期投資額・毎月の積立額・想定年利・期間を入力するだけで、
             複利効果による資産成長をグラフで可視化。新NISA・iDeCo・投資信託の収益計画に。
@@ -258,6 +265,8 @@ export default function 複利計算シミュレーターページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="compound-interest" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

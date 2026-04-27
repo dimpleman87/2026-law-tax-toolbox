@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./qr-generator.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "qr-generator",
@@ -63,6 +68,7 @@ export default function QRコード生成ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="qr-generator" タイトル="QRコード生成ツール" 説明="URLや文字列を即QRコードに変換" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -71,6 +77,7 @@ export default function QRコード生成ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">QRコード生成ツール</h1>
+          <FavoriteButton slug="qr-generator" title="QRコード生成ツール" emoji="QRコード生成ツール" />
           <p className="ツールページ説明">
             URLやテキストを入力するだけで、即座にQRコードを生成します。サイズ・エラー訂正レベル選択可能。
           </p>
@@ -184,6 +191,8 @@ export default function QRコード生成ページ() {
               結果テキスト="QRコードを生成しました"
             />
           )}
+
+          <ToolGuide slug="qr-generator" />
         </div>
       </main>
     </>

@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./crypto-tax-2026.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "crypto-tax-2026",
@@ -116,6 +121,7 @@ export default function 暗号資産税金シミュレーターページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="crypto-tax-2026" タイトル="暗号資産税金シミュレーター2026" 説明="現行総合課税vs2026年分離課税20.315%を比較" カテゴリ="金融・投資" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -126,6 +132,7 @@ export default function 暗号資産税金シミュレーターページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">₿ 暗号資産税金シミュレーター2026</h1>
+          <FavoriteButton slug="crypto-tax-2026" title="暗号資産税金シミュレーター2026" emoji="₿" />
           <p className="ツールページ説明">
             暗号資産（仮想通貨）の売却益を現行の総合課税（最大55%）と
             2026年税制改正の申告分離課税（20.315%）で比較。繰越損失・損出し効果も計算。
@@ -288,6 +295,8 @@ export default function 暗号資産税金シミュレーターページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="crypto-tax-2026" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

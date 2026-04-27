@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./digital-sign-saving.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "digital-sign-saving",
@@ -72,6 +77,7 @@ export default function 電子署名削減計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="digital-sign-saving" タイトル="電子署名・電子契約コスト削減計算機" 説明="紙契約から電子契約に移行した場合のコスト削減効果を試算" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -82,6 +88,7 @@ export default function 電子署名削減計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">✍️ 電子署名・電子契約コスト削減計算機</h1>
+          <FavoriteButton slug="digital-sign-saving" title="電子署名・電子契約コスト削減計算機" emoji="✍️" />
           <p className="ツールページ説明">
             印紙代・郵送費・印刷費・保管費・担当者工数を入力するだけで
             電子契約導入による年間コスト削減額とROIを即算出。稟議の根拠データに。
@@ -177,6 +184,8 @@ export default function 電子署名削減計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="digital-sign-saving" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

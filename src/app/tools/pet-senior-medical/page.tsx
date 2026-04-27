@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./pet-senior-medical.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "pet-senior-medical",
@@ -65,6 +70,7 @@ export default function ペット老後積立シミュレーターページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="pet-senior-medical" タイトル="ペット老後医療費積立シミュレーター" 説明="シニア期の医療費を今から準備する積立プランを試算" カテゴリ="ペット" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -75,6 +81,7 @@ export default function ペット老後積立シミュレーターページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🐾 ペット老後医療費積立シミュレーター</h1>
+          <FavoriteButton slug="pet-senior-medical" title="ペット老後医療費積立シミュレーター" emoji="🐾" />
           <p className="ツールページ説明">
             現在のペットの年齢・種別を入力するだけでシニア期に備える必要積立額と
             月々の積立目安を即算出。ペット保険の有無も考慮した現実的なプランに。
@@ -189,6 +196,8 @@ export default function ペット老後積立シミュレーターページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="pet-senior-medical" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

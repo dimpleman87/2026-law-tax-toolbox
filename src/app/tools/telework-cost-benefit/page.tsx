@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./telework-cost-benefit.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "telework-cost-benefit",
@@ -71,6 +76,7 @@ export default function テレワーク効果シミュレーターページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="telework-cost-benefit" タイトル="テレワーク導入効果シミュレーター" 説明="交通費削減とオフィス維持費削減のメリット試算" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -81,6 +87,7 @@ export default function テレワーク効果シミュレーターページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🏠 テレワーク導入効果シミュレーター</h1>
+          <FavoriteButton slug="telework-cost-benefit" title="テレワーク導入効果シミュレーター" emoji="🏠" />
           <p className="ツールページ説明">
             従業員数・テレワーク率・通勤費・オフィス賃料を入力するだけで
             交通費削減・オフィス縮小効果を年間コスト削減額として即算出。
@@ -204,6 +211,8 @@ export default function テレワーク効果シミュレーターページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="telework-cost-benefit" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

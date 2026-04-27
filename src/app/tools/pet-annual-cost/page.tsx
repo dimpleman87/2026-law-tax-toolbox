@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./pet-annual-cost.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "pet-annual-cost",
@@ -98,6 +103,7 @@ export default function ペット年間費シミュレーターページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="pet-annual-cost" タイトル="ペット年間飼育費シミュレーター" 説明="犬・猫の年間・生涯飼育コストを積み上げ計算" カテゴリ="生活・計算" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -108,6 +114,7 @@ export default function ペット年間費シミュレーターページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🐾 ペット年間飼育費シミュレーター</h1>
+          <FavoriteButton slug="pet-annual-cost" title="ペット年間飼育費シミュレーター" emoji="🐾" />
           <p className="ツールページ説明">
             フード・医療費・保険・トリミングなどを積み上げて月額・年額・生涯コストを試算。
             犬（小型/中型/大型）・猫・小動物に対応。飼育前の資金計画に。
@@ -205,6 +212,8 @@ export default function ペット年間費シミュレーターページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="pet-annual-cost" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

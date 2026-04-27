@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./mortgage-calculator.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "mortgage-calculator",
@@ -105,6 +110,7 @@ export default function 住宅ローン計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="mortgage-calculator" タイトル="住宅ローン計算機" 説明="月返済額・総支払額・利息総額をシミュレーション" カテゴリ="金融・投資" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -113,6 +119,7 @@ export default function 住宅ローン計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🏠 住宅ローン計算機</h1>
+          <FavoriteButton slug="mortgage-calculator" title="住宅ローン計算機" emoji="🏠" />
           <p className="ツールページ説明">
             借入額・金利・返済期間を入力するだけで月返済額・総支払額・利息総額を即計算。元利均等・元金均等の両方に対応。
           </p>
@@ -291,6 +298,8 @@ export default function 住宅ローン計算機ページ() {
             <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />
             </>
           )}
+
+          <ToolGuide slug="mortgage-calculator" />
         </div>
       </main>
     </>

@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./gx-carbon-levy-calc.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "gx-carbon-levy-calc",
@@ -73,6 +78,7 @@ export default function GX炭素賦課金計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="gx-carbon-levy-calc" タイトル="GX炭素賦課金コスト計算機" 説明="2028年導入予定の炭素賦課金が企業コストに与える影響を試算" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -83,6 +89,7 @@ export default function GX炭素賦課金計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🌍 GX炭素賦課金コスト計算機</h1>
+          <FavoriteButton slug="gx-carbon-levy-calc" title="GX炭素賦課金コスト計算機" emoji="🌍" />
           <p className="ツールページ説明">
             2028年導入予定のGX炭素賦課金（化石燃料賦課金）が企業の電力・ガスコストに
             与える影響を試算。2030・2035年の段階的引き上げシナリオにも対応。
@@ -179,6 +186,8 @@ export default function GX炭素賦課金計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="gx-carbon-levy-calc" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./hourly-wage-calc.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "hourly-wage-calc",
@@ -102,6 +107,7 @@ export default function 時給年収換算計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="hourly-wage-calc" タイトル="時給・年収換算計算機" 説明="時給から年収、年収から時給を瞬時に換算" カテゴリ="ビジネス・経理" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -110,6 +116,7 @@ export default function 時給年収換算計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">⏰ 時給・日給・月給・年収 換算計算機</h1>
+          <FavoriteButton slug="hourly-wage-calc" title="時給・年収換算計算機" emoji="⏰" />
           <p className="ツールページ説明">
             時給から年収、年収から時給など給与の単位を自由に換算。残業代・実質時給も計算。
           </p>
@@ -258,6 +265,8 @@ export default function 時給年収換算計算機ページ() {
               </>
               }
 
+
+          <ToolGuide slug="hourly-wage-calc" />
         </div>
       </main>
     </>

@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./roas-calculator.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "roas-calculator",
@@ -69,6 +74,7 @@ export default function ROAS計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="roas-calculator" タイトル="ROAS・ROI計算機" 説明="広告費・売上・原価からROAS/ROI/CPAを即算出" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -79,6 +85,7 @@ export default function ROAS計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">📊 ROAS・ROI計算機</h1>
+          <FavoriteButton slug="roas-calculator" title="ROAS・ROI計算機" emoji="📊" />
           <p className="ツールページ説明">
             広告費・売上・原価を入力するだけでROAS・ROI・CPAを一括算出。
             損益分岐ROASや費用対効果の判定まで表示。広告運用・予算設計の意思決定に。
@@ -254,6 +261,8 @@ export default function ROAS計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="roas-calculator" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./consumption-tax-calc.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "consumption-tax-calc",
@@ -81,6 +86,7 @@ export default function 消費税計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="consumption-tax-calc" タイトル="インボイス対応 消費税計算機" 説明="本則課税・簡易課税・2割特例の納税額を比較" カテゴリ="金融・投資" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -91,6 +97,7 @@ export default function 消費税計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🧾 インボイス対応 消費税計算機</h1>
+          <FavoriteButton slug="consumption-tax-calc" title="インボイス対応 消費税計算機" emoji="🧾" />
           <p className="ツールページ説明">
             年間売上・経費を入力するだけで本則課税・簡易課税・2割特例の納税額を比較。
             どの課税方式が最も有利かを即判定。インボイス制度対応の資金計画に。
@@ -199,6 +206,8 @@ export default function 消費税計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="consumption-tax-calc" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

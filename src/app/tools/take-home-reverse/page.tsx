@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./take-home-reverse.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "take-home-reverse",
@@ -160,6 +165,7 @@ export default function 手取り逆算ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="take-home-reverse" タイトル="手取り逆算計算機" 説明="希望手取りから必要年収を逆算" カテゴリ="生活・計算" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -170,6 +176,7 @@ export default function 手取り逆算ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💰 手取り逆算計算機</h1>
+          <FavoriteButton slug="take-home-reverse" title="手取り逆算計算機" emoji="💰" />
           <p className="ツールページ説明">
             「月手取り30万円欲しい」→必要な年収を即逆算。
             転職・給与交渉・収入目標設定に。扶養家族も考慮して計算します。
@@ -316,6 +323,8 @@ export default function 手取り逆算ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="take-home-reverse" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

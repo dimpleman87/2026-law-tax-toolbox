@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./content-certified-mail.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "content-certified-mail",
@@ -48,6 +53,7 @@ export default function 内容証明計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="content-certified-mail" タイトル="内容証明郵便 料金計算機" 説明="文字数・枚数に応じた内容証明の発送コストを算出" カテゴリ="士業・法務" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -58,6 +64,7 @@ export default function 内容証明計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">📮 内容証明郵便 料金計算機</h1>
+          <FavoriteButton slug="content-certified-mail" title="内容証明郵便 料金計算機" emoji="📮" />
           <p className="ツールページ説明">
             枚数・配達証明の有無を入力するだけで内容証明郵便の発送料金を即算出。
             2024年10月改定後の最新料金に対応。請求書・催告書の発送コスト確認に。
@@ -158,6 +165,8 @@ export default function 内容証明計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="content-certified-mail" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

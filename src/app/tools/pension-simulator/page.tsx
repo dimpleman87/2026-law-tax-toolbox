@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./pension-simulator.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "pension-simulator",
@@ -116,6 +121,7 @@ export default function 年金シミュレーターページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="pension-simulator" タイトル="年金受給額シミュレーター" 説明="老齢基礎・厚生年金の受給見込み額を試算" カテゴリ="生活・計算" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -126,6 +132,7 @@ export default function 年金シミュレーターページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">📊 年金受給額シミュレーター（2024年度対応）</h1>
+          <FavoriteButton slug="pension-simulator" title="年金受給額シミュレーター" emoji="📊" />
           <p className="ツールページ説明">
             現在年齢・加入年数・平均年収を入力するだけで、老齢基礎年金と厚生年金の受給見込み額を試算。
             繰上げ・繰下げ受給の損益分岐点も確認できます。
@@ -307,6 +314,8 @@ export default function 年金シミュレーターページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="pension-simulator" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./saas-roi-calc.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "saas-roi-calc",
@@ -59,6 +64,7 @@ export default function SaaSROI計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="saas-roi-calc" タイトル="SaaS導入ROI計算機" 説明="月額コストと業務削減時間の投資効果を算出" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -69,6 +75,7 @@ export default function SaaSROI計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💻 SaaS導入ROI計算機</h1>
+          <FavoriteButton slug="saas-roi-calc" title="SaaS導入ROI計算機" emoji="💻" />
           <p className="ツールページ説明">
             月額コスト・業務削減時間・利用人数を入力するだけで年間ROI・月間純利益・
             初期費用の回収期間を即算出。SaaS導入稟議の根拠データに。
@@ -163,6 +170,8 @@ export default function SaaSROI計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="saas-roi-calc" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

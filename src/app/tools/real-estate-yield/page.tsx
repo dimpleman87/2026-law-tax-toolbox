@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./real-estate-yield.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "real-estate-yield",
@@ -99,6 +104,7 @@ export default function 不動産利回り計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="real-estate-yield" タイトル="不動産投資利回り計算機" 説明="表面・実質利回りをシミュレーション" カテゴリ="金融・投資" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -109,6 +115,7 @@ export default function 不動産利回り計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🏠 不動産投資利回り計算機</h1>
+          <FavoriteButton slug="real-estate-yield" title="不動産投資利回り計算機" emoji="🏠" />
           <p className="ツールページ説明">
             購入価格・家賃収入・経費を入力するだけで表面・実質利回りを即算出。
             ローン返済・キャッシュフロー・損益分岐入居率・投資回収年数まで一括シミュレーション。
@@ -308,6 +315,8 @@ export default function 不動産利回り計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="real-estate-yield" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

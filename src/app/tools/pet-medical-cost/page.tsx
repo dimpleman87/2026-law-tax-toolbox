@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./pet-medical-cost.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "pet-medical-cost",
@@ -69,6 +74,7 @@ export default function ペット医療費シミュレーターページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="pet-medical-cost" タイトル="ペット高額医療費シミュレーター" 説明="手術・入院の自己負担額と保険効果を比較" カテゴリ="生活・計算" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -79,6 +85,7 @@ export default function ペット医療費シミュレーターページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🏥 ペット高額医療費シミュレーター</h1>
+          <FavoriteButton slug="pet-medical-cost" title="ペット高額医療費シミュレーター" emoji="🏥" />
           <p className="ツールページ説明">
             手術・入院・がん治療などの種別を選ぶだけで、平均医療費・保険補償額・自己負担額を即試算。
             ペット保険の有無による差額も一目で確認できます。
@@ -201,6 +208,8 @@ export default function ペット医療費シミュレーターページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="pet-medical-cost" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

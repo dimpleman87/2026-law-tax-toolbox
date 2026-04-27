@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./invoice-tax-calc.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "invoice-tax-calc",
@@ -95,6 +100,7 @@ export default function インボイス消費税計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="invoice-tax-calc" タイトル="インボイス制度 消費税計算機" 説明="免税・課税事業者の実質負担を比較試算" カテゴリ="ビジネス・経理" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -103,6 +109,7 @@ export default function インボイス消費税計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">📋 インボイス制度 消費税計算機</h1>
+          <FavoriteButton slug="invoice-tax-calc" title="インボイス制度 消費税計算機" emoji="📋" />
           <p className="ツールページ説明">
             売上・経費・業種から免税／2割特例／簡易課税／本則課税の消費税負担を比較。フリーランス・個人事業主向け。
           </p>
@@ -230,6 +237,8 @@ export default function インボイス消費税計算機ページ() {
               </>
               }
 
+
+          <ToolGuide slug="invoice-tax-calc" />
         </div>
       </main>
     </>

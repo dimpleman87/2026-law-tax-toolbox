@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./subsidies-reverse-lookup-2026.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "subsidies-reverse-lookup-2026",
@@ -89,6 +94,7 @@ export default function 補助金逆引き判定ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="subsidies-reverse-lookup-2026" タイトル="2026年版 補助金・給付金「逆引き」判定ツール" 説明="地域・業種・目的から受給可能な補助金を診断" カテゴリ="ビジネス・経営" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -99,6 +105,7 @@ export default function 補助金逆引き判定ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💰 2026年版 補助金「逆引き」判定ツール</h1>
+          <FavoriteButton slug="subsidies-reverse-lookup-2026" title="2026年版 補助金・給付金「逆引き」判定ツール" emoji="💰" />
           <p className="ツールページ説明">
             目的・投資額・事業規模を選ぶだけで申請可能性の高い補助金トップ2と
             概算受給額を即判定。賃上げ加点も考慮した現実的な試算に。
@@ -210,6 +217,8 @@ export default function 補助金逆引き判定ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="subsidies-reverse-lookup-2026" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

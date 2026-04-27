@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./pet-medical-high-cost.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "pet-medical-high-cost",
@@ -57,6 +62,7 @@ export default function 高額獣医療計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="pet-medical-high-cost" タイトル="犬猫 高額獣医療 自己負担シミュレーター" 説明="診察・手術・入院の医療費と保険補償額を明細試算" カテゴリ="ペット" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -67,6 +73,7 @@ export default function 高額獣医療計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🏥 犬猫 高額獣医療 自己負担シミュレーター</h1>
+          <FavoriteButton slug="pet-medical-high-cost" title="犬猫 高額獣医療 自己負担シミュレーター" emoji="🏥" />
           <p className="ツールページ説明">
             診察・検査・手術・入院費を入力してペット保険の補償額と自己負担額を即算出。
             2026年最新の費用水準に対応。保険プラン選択の参考に。
@@ -167,6 +174,8 @@ export default function 高額獣医療計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="pet-medical-high-cost" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

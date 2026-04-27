@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./rpa-time-saving.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "rpa-time-saving",
@@ -60,6 +65,7 @@ export default function RPA削減計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="rpa-time-saving" タイトル="RPA導入削減時間計算機" 説明="定型業務の自動化による工数削減効果を算出" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -70,6 +76,7 @@ export default function RPA削減計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🤖 RPA導入削減時間計算機</h1>
+          <FavoriteButton slug="rpa-time-saving" title="RPA導入削減時間計算機" emoji="🤖" />
           <p className="ツールページ説明">
             定型業務の作業時間・頻度・人件費を入力するだけで月間・年間の工数削減時間・
             コスト削減額・導入費用の回収期間・3年ROIを即算出。DX投資判断の根拠に。
@@ -185,6 +192,8 @@ export default function RPA削減計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="rpa-time-saving" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./age-calculator.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "age-calculator",
@@ -132,6 +137,7 @@ export default function 年齢計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="age-calculator" タイトル="年齢計算機" 説明="満年齢・和暦・干支を生年月日から即計算" カテゴリ="生活・計算" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -142,6 +148,7 @@ export default function 年齢計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">📅 年齢計算機｜満年齢・和暦・干支・星座</h1>
+          <FavoriteButton slug="age-calculator" title="年齢計算機" emoji="📅" />
           <p className="ツールページ説明">
             生年月日を入力するだけで満年齢・数え年・和暦・干支・星座・次の誕生日までの日数を一括計算。
             行政手続き・年金・保険の年齢確認に。
@@ -290,6 +297,8 @@ export default function 年齢計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="age-calculator" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

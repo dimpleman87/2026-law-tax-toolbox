@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./company-setup-cost.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "company-setup-cost",
@@ -89,6 +94,7 @@ export default function 会社設立コストページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="company-setup-cost" タイトル="会社設立コストシミュレーター" 説明="株式会社・合同会社の設立実費を即算出" カテゴリ="ビジネス・経理" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -99,6 +105,7 @@ export default function 会社設立コストページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🏢 会社設立コストシミュレーター</h1>
+          <FavoriteButton slug="company-setup-cost" title="会社設立コストシミュレーター" emoji="🏢" />
           <p className="ツールページ説明">
             株式会社・合同会社の設立にかかる登録免許税・定款認証手数料・収入印紙代など
             法定実費を全て積み上げて試算。電子定款の節税効果も計算。
@@ -247,6 +254,8 @@ export default function 会社設立コストページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="company-setup-cost" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

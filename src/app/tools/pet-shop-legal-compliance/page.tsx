@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./pet-shop-legal-compliance.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "pet-shop-legal-compliance",
@@ -53,6 +58,7 @@ export default function 動物愛護法対応コスト試算ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="pet-shop-legal-compliance" タイトル="動物愛護法改正 施設基準対応コスト試算ツール" 説明="ブリーダー・ペットショップの設備投資コストを試算" カテゴリ="ペット" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -63,6 +69,7 @@ export default function 動物愛護法対応コスト試算ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🐾 動物愛護法改正 施設基準対応コスト試算ツール</h1>
+          <FavoriteButton slug="pet-shop-legal-compliance" title="動物愛護法改正 施設基準対応コスト試算ツール" emoji="🐾" />
           <p className="ツールページ説明">
             ケージサイズ・空調設備・夜間展示対応の現況を入力するだけで
             動物愛護法改正への対応に必要な設備投資コストを概算。補助金申請の根拠にも。
@@ -156,6 +163,8 @@ export default function 動物愛護法対応コスト試算ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="pet-shop-legal-compliance" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

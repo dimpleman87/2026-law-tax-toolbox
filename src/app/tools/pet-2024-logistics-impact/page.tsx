@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./pet-2024-logistics-impact.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "pet-2024-logistics-impact",
@@ -64,6 +69,7 @@ export default function ペットサロン2024年問題ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="pet-2024-logistics-impact" タイトル="ペットホテル・トリミングサロン 2024年問題コスト転嫁シミュレーター" 説明="人件費・燃料費増加に伴う値上げ幅の根拠を算出" カテゴリ="ビジネス・経営" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -74,6 +80,7 @@ export default function ペットサロン2024年問題ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🐶 ペットサロン 2024年問題コスト転嫁シミュレーター</h1>
+          <FavoriteButton slug="pet-2024-logistics-impact" title="ペットホテル・トリミングサロン 2024年問題コスト転嫁シミュレーター" emoji="🐶" />
           <p className="ツールページ説明">
             人件費・燃料費・電気代の上昇コストを数値化し、値上げ幅の正当な根拠を算出。
             ペットホテル・トリミングサロンの料金改定時の説明資料に。
@@ -167,6 +174,8 @@ export default function ペットサロン2024年問題ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="pet-2024-logistics-impact" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./storage-cost-predict.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "storage-cost-predict",
@@ -69,6 +74,7 @@ export default function ストレージコスト予測計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="storage-cost-predict" タイトル="ストレージコスト予測計算機" 説明="データ増加量から3〜5年後のストレージ費用を予測" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -79,6 +85,7 @@ export default function ストレージコスト予測計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💾 ストレージコスト予測計算機</h1>
+          <FavoriteButton slug="storage-cost-predict" title="ストレージコスト予測計算機" emoji="💾" />
           <p className="ツールページ説明">
             現在の容量・月間増加量・重複排除率を入力して3〜5年後のストレージ費用を予測。
             クラウド・オンプレ・テープアーカイブの種別比較にも対応。
@@ -179,6 +186,8 @@ export default function ストレージコスト予測計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="storage-cost-predict" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

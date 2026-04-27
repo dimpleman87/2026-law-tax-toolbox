@@ -10,6 +10,7 @@ import ツールカード from "@/components/ツールカード";
 import AdSlot from "@/components/AdSlot";
 import HeroSearch from "@/components/HeroSearch";
 import { CATEGORIES } from "@/lib/constants";
+import FavoritesSection from "@/components/FavoritesSection";
 
 export const metadata: Metadata = {
   title: "無料オンラインツール集 | ToolBox — 65種類すべて登録不要",
@@ -230,6 +231,11 @@ export default async function トップページ() {
         <div className="広告ラベル">スポンサー</div>
         <AdSlot 位置="top" />
       </div>
+
+      {/* ══════════════════════════════════════
+          ★ お気に入りツール（クライアント側・localStorage）
+      ══════════════════════════════════════ */}
+      <FavoritesSection />
 
       {/* ══════════════════════════════════════
           ⭐ よく使われているツール

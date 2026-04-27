@@ -15,6 +15,8 @@ import AdSlot from "@/components/AdSlot";
 import BusinessAdBanner from "@/components/BusinessAdBanner";
 import type { ツール定義型 } from "@/lib/types";
 import s from "./meo-checker.module.css";
+import ToolGuide from "@/components/ToolGuide";
+import CalcHistory from "@/components/CalcHistory";
 
 const ShareButtons = dynamic(() => import("@/components/ShareButtons"), {
   ssr: false,
@@ -381,6 +383,7 @@ export default function MeoCheckerPage() {
                     結果テキスト={`${result.score}点（${result.level}）`}
                   />
 
+              <CalcHistory toolSlug="meo-checker" toolName="MEO対策・伸びしろ診断シミュレーター" />
                   <button className={s.リセットボタン} onClick={handleReset}>
                     もう一度診断する
                   </button>

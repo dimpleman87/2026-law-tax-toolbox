@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./consumption-tax-reverse.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "consumption-tax-reverse",
@@ -75,6 +80,7 @@ export default function 消費税逆算計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="consumption-tax-reverse" タイトル="消費税 逆算・内税外税計算機" 説明="税込・税抜・消費税額を一発計算" カテゴリ="ビジネス・経理" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -83,6 +89,7 @@ export default function 消費税逆算計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💰 消費税 逆算・内税外税計算機</h1>
+          <FavoriteButton slug="consumption-tax-reverse" title="消費税 逆算・内税外税計算機" emoji="💰" />
           <p className="ツールページ説明">
             税込価格から税抜を逆算、または税抜から税込を計算。8%（軽減税率）・10%両対応。
           </p>
@@ -217,6 +224,8 @@ export default function 消費税逆算計算機ページ() {
               <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />
           </>
           }
+
+          <ToolGuide slug="consumption-tax-reverse" />
         </div>
       </main>
     </>

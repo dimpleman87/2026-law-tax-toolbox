@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./bmi-calculator.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "bmi-calculator",
@@ -86,6 +91,7 @@ export default function BMI計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="bmi-calculator" タイトル="BMI計算機" 説明="身長・体重からBMIと肥満度を即判定" カテゴリ="生活・計算" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -96,6 +102,7 @@ export default function BMI計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">⚖️ BMI計算機（体格指数）</h1>
+          <FavoriteButton slug="bmi-calculator" title="BMI計算機" emoji="⚖️" />
           <p className="ツールページ説明">
             身長と体重を入力するだけでBMI・肥満度を即判定。標準体重・理想体重・目標差分もリアルタイム表示。
             ダイエット計画や健康管理に。
@@ -258,6 +265,8 @@ export default function BMI計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="bmi-calculator" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

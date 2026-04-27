@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./logistics-fare-pass-through.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "logistics-fare-pass-through",
@@ -62,6 +67,7 @@ export default function 物流費転嫁シミュレーターページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="logistics-fare-pass-through" タイトル="物流費値上げ転嫁シミュレーター" 説明="2024年問題による物流コスト増加の販売価格への転嫁効果を試算" カテゴリ="ビジネス・経営" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -72,6 +78,7 @@ export default function 物流費転嫁シミュレーターページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🚛 物流費値上げ転嫁シミュレーター</h1>
+          <FavoriteButton slug="logistics-fare-pass-through" title="物流費値上げ転嫁シミュレーター" emoji="🚛" />
           <p className="ツールページ説明">
             2024年問題による物流コスト増加分を販売価格に転嫁した場合の影響を試算。
             転嫁率・件数・売上に対する利益圧迫額と1件あたりの値上げ幅を即算出。
@@ -175,6 +182,8 @@ export default function 物流費転嫁シミュレーターページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="logistics-fare-pass-through" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

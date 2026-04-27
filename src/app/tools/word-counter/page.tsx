@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./word-counter.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "word-counter",
@@ -92,6 +97,7 @@ export default function 文字数カウンターページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="word-counter" タイトル="文字数カウンター" 説明="テキストの文字数・行数・文節をリアルタイムカウント" カテゴリ="テキスト解析" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -102,6 +108,7 @@ export default function 文字数カウンターページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">📝 文字数カウンター</h1>
+          <FavoriteButton slug="word-counter" title="文字数カウンター" emoji="📝" />
           <p className="ツールページ説明">
             テキストを入力するだけでリアルタイムカウント。文字数・行数・バイト数・X（旧Twitter）換算・読書時間・文字種別まで一括表示。
             記事執筆・SNS投稿・入稿規定の確認に。
@@ -162,6 +169,8 @@ export default function 文字数カウンターページ() {
             ))}
           </div>
 
+
+          <ToolGuide slug="word-counter" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)", marginBottom: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./pet-microchip-registration.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "pet-microchip-registration",
@@ -57,6 +62,7 @@ export default function マイクロチップ費用計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="pet-microchip-registration" タイトル="ペットマイクロチップ費用計算機" 説明="マイクロチップ装着・登録にかかる費用を地域別に試算" カテゴリ="ペット" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -67,6 +73,7 @@ export default function マイクロチップ費用計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🐾 ペットマイクロチップ費用計算機</h1>
+          <FavoriteButton slug="pet-microchip-registration" title="ペットマイクロチップ費用計算機" emoji="🐾" />
           <p className="ツールページ説明">
             2022年6月より販売業者への装着義務化。装着費・登録料・狂犬病ワクチン同時接種費を
             地域・頭数・施設別に合計金額を即算出。
@@ -179,6 +186,8 @@ export default function マイクロチップ費用計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="pet-microchip-registration" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

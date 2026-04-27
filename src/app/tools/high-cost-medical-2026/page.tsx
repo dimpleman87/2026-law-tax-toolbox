@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./high-cost-medical-2026.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "high-cost-medical-2026",
@@ -140,6 +145,7 @@ export default function 高額療養費シミュレーターページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="high-cost-medical-2026" タイトル="高額療養費2026年改正シミュレーター" 説明="月額上限引き上げ・年間上限新設の影響を試算" カテゴリ="生活・計算" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -150,6 +156,7 @@ export default function 高額療養費シミュレーターページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🏥 高額療養費2026年改正シミュレーター</h1>
+          <FavoriteButton slug="high-cost-medical-2026" title="高額療養費2026年改正シミュレーター" emoji="🏥" />
           <p className="ツールページ説明">
             2026年8月施行予定の高額療養費制度改正に対応。月額上限の引き上げと年間上限新設により、
             自己負担がどう変わるかを旧制度と比較シミュレーション。
@@ -308,6 +315,8 @@ export default function 高額療養費シミュレーターページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="high-cost-medical-2026" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

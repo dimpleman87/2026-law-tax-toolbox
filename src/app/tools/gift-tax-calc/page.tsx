@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./gift-tax-calc.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "gift-tax-calc",
@@ -104,6 +109,7 @@ export default function 贈与税計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="gift-tax-calc" タイトル="贈与税 計算機" 説明="暦年贈与・基礎控除・税率を即試算" カテゴリ="士業・法務" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -112,6 +118,7 @@ export default function 贈与税計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💰 贈与税 計算機（2024年改正対応）</h1>
+          <FavoriteButton slug="gift-tax-calc" title="贈与税 計算機" emoji="💰" />
           <p className="ツールページ説明">
             贈与金額・税率種別を入力するだけで贈与税額を即計算。110万円基礎控除・特例税率・暦年分割節税効果もわかる。
           </p>
@@ -256,6 +263,8 @@ export default function 贈与税計算機ページ() {
               <ShareButtons ツール={ツール定義} 結果テキスト={結果テキスト} />
           </>
           }
+
+          <ToolGuide slug="gift-tax-calc" />
         </div>
       </main>
     </>

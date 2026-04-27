@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./url-encoder.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "url-encoder",
@@ -60,6 +65,7 @@ export default function URLエンコーダーページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="url-encoder" タイトル="URLエンコード・デコードツール" 説明="日本語URLをエンコード/デコード" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -68,6 +74,7 @@ export default function URLエンコーダーページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">URLエンコード・デコードツール</h1>
+          <FavoriteButton slug="url-encoder" title="URLエンコード・デコードツール" emoji="URLエンコード・デコードツール" />
           <p className="ツールページ説明">
             日本語・記号を含むURLをパーセントエンコーディング形式に変換、または元の文字に戻します。
           </p>
@@ -172,6 +179,8 @@ export default function URLエンコーダーページ() {
               結果テキスト={`${入力値.slice(0, 30)}… → ${出力値.slice(0, 30)}…`}
             />
           )}
+
+          <ToolGuide slug="url-encoder" />
         </div>
       </main>
     </>

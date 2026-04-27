@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./side-job-tax.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "side-job-tax",
@@ -111,6 +116,7 @@ export default function 副業確定申告チェッカーページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="side-job-tax" タイトル="副業 確定申告チェッカー" 説明="20万円ルール・税額・納付時期を即判定" カテゴリ="ビジネス・経理" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -119,6 +125,7 @@ export default function 副業確定申告チェッカーページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">💡 副業 確定申告チェッカー</h1>
+          <FavoriteButton slug="side-job-tax" title="副業 確定申告チェッカー" emoji="💡" />
           <p className="ツールページ説明">
             副業収入を入力するだけで申告要否・税額・実質手取りを即判定。20万円ルール・青色申告・住民税バレ対策まで解説。
           </p>
@@ -280,6 +287,8 @@ export default function 副業確定申告チェッカーページ() {
               </>
               }
 
+
+          <ToolGuide slug="side-job-tax" />
         </div>
       </main>
     </>

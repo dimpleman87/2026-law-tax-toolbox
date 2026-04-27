@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./security-investment-roi.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "security-investment-roi",
@@ -74,6 +79,7 @@ export default function セキュリティ投資ROI計算機ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="security-investment-roi" タイトル="セキュリティ投資ROI計算機（ROSI）" 説明="情報セキュリティ投資の費用対効果をROSI指標で定量評価" カテゴリ="IT・DX推進" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -84,6 +90,7 @@ export default function セキュリティ投資ROI計算機ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🛡️ セキュリティ投資ROI計算機（ROSI）</h1>
+          <FavoriteButton slug="security-investment-roi" title="セキュリティ投資ROI計算機（ROSI）" emoji="🛡️" />
           <p className="ツールページ説明">
             情報セキュリティへの投資効果を国際標準指標「ROSI」で定量化。
             インシデント被害額・発生確率・リスク低減率から年間期待損失（ALE）の削減効果を算出。
@@ -193,6 +200,8 @@ export default function セキュリティ投資ROI計算機ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="security-investment-roi" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />

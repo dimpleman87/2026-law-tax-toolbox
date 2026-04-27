@@ -5,7 +5,12 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import ShareButtons from "@/components/ShareButtons";
 import AffiliateSlot from "@/components/AffiliateSlot";
+import FavoriteButton from "@/components/FavoriteButton";
+import RelatedTools from "@/components/RelatedTools";
+import CalcHistory from "@/components/CalcHistory";
+import ToolJsonLd from "@/components/ToolJsonLd";
 import styles from "./pet-funeral-cost.module.css";
+import ToolGuide from "@/components/ToolGuide";
 
 const ツール定義 = {
   スラッグ: "pet-funeral-cost",
@@ -57,6 +62,7 @@ export default function ペット葬儀費用ページ() {
     <>
       <div className="ツールページヘッダー">
         <div className="ツールページコンテナ">
+          <ToolJsonLd スラッグ="pet-funeral-cost" タイトル="ペット葬儀費用シミュレーター" 説明="火葬・埋葬・メモリアルの総費用を事前に把握" カテゴリ="生活・計算" />
           <nav className="パンくずリスト" aria-label="breadcrumb">
             <ol>
               <li><Link href="/">ホーム</Link></li>
@@ -67,6 +73,7 @@ export default function ペット葬儀費用ページ() {
             </ol>
           </nav>
           <h1 className="ツールページタイトル">🌸 ペット葬儀費用シミュレーター</h1>
+          <FavoriteButton slug="pet-funeral-cost" title="ペット葬儀費用シミュレーター" emoji="🌸" />
           <p className="ツールページ説明">
             ペットの種類・火葬プランを選ぶだけで葬儀の総費用を試算。
             骨壺・メモリアルグッズ・ペットロスケアまで含めた総合コストを事前に把握。
@@ -168,6 +175,8 @@ export default function ペット葬儀費用ページ() {
             </div>
           </div>
 
+
+          <ToolGuide slug="pet-funeral-cost" />
           <div className="広告ラッパー" style={{ padding: 0, marginTop: "var(--スペース-xl)" }}>
             <div className="広告ラベル">スポンサー</div>
             <AdSlot 位置="middle" />
