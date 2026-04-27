@@ -1690,3 +1690,51 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ============================================================
+   印刷・PDF出力 専用スタイル
+   ============================================================ */
+@media print {
+  /* 非表示にする要素 */
+  .ツールページヘッダー nav,
+  .広告ラッパー,
+  .share-section,
+  .export-section,
+  header, footer,
+  [class*="AdSlot"],
+  [class*="AffiliateSlot"] { display: none !important; }
+
+  /* ページ全体のリセット */
+  body { background: #fff !important; color: #000 !important; font-size: 11pt; }
+
+  /* タイトルとUI */
+  .ツールページタイトル { font-size: 16pt; color: #000 !important; }
+  .ツールページ説明 { font-size: 10pt; color: #444 !important; }
+
+  /* 入力・結果グリッドを白背景に */
+  .入力セクション, .結果セクション,
+  .結果カード, .結果グリッド {
+    background: #fff !important;
+    border-color: #ccc !important;
+    color: #000 !important;
+  }
+
+  /* 結果値を黒に */
+  .結果値 { color: #000 !important; font-weight: 700; }
+  .結果ラベル { color: #444 !important; }
+
+  /* ページ区切り防止 */
+  .ツールUI { display: block !important; }
+  .結果セクション { page-break-inside: avoid; }
+
+  /* フッター印刷表示 */
+  .ツールページコンテナ::after {
+    content: "toolbox-free.com | 計算結果は目安です。正確な数値は専門家にご確認ください。";
+    display: block;
+    margin-top: 20px;
+    font-size: 8pt;
+    color: #888;
+    border-top: 1px solid #ccc;
+    padding-top: 6px;
+  }
+}
